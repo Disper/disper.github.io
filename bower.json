@@ -1,0 +1,19 @@
+{
+  "name": "disper.github.io",
+  "homepage": "https://github.com/Disper/disper.github.io",
+  "authors": [
+    "Michał 'Disper' Drzewiecki"
+  ],
+  "description": "Neuroshima Hex FAQ",
+  "main": "index.html",
+  "keywords": [
+    "neuroshima",
+    "hex",
+    "faq"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery-3.7.1.min": "https://code.jquery.com/jquery-3.7.1.min.js"
+  }
+}

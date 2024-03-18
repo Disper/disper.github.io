@@ -2,13 +2,138 @@
 <html>
 <head>
 <title>Neuroshima Hex FAQ</title>
-</head>
-<body>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<script src="bower_components/jquery-3.7.1.min/index.js"></script>
+<script>
+  
+  
+  $(document).ready(function(){
+  
+    $("#ukryj-wszystko").click(function(){
+      $("#faq p").hide()
+      $("div.faq-sterowanie button").removeClass("btn-primary").addClass("btn-dark")
+    })
+    $("#pokaz-wszystko").click(function(){
+      $("#faq p").show()
+      $("div.faq-sterowanie button").removeClass("btn-dark").addClass("btn-primary")
+    })
+
+
+    $("div.faq-sterowanie button").click(function(){
+      $(this).toggleClass("btn-primary btn-dark");
+      var buttonId = $(this).attr('id')
+      var cssClassToToggle = '.' + buttonId
+      $(cssClassToToggle).toggle();
+    });
+  });
+</script>
+
+</head>
+<body >
 <h1>Neuroshima Hex FAQ</h1>
 
+<!-- PODSTAWOWE -->
 
-<p>Template</p>
+<div class="btn-group przyciski-sterowanie" role="group" aria-label="ustawienia">
+  <button id="ukryj-wszystko" class="btn btn-info bi-lightbulb-off-fill">Ukryj wszystko</button>
+  <button id="pokaz-wszystko" class="btn btn-info bi-lightbulb">Pokaż wszystko</button>
+</div>
 
+<div class="btn-group faq-sterowanie" role="group" aria-label="podstawowe">
+  <button id="errata" class="btn btn-primary">Errata</button>
+  <button id="bitwa" class="btn btn-primary">Bitwa</button>
+  <button id="moduly" class="btn btn-primary">Moduły</button>
+</div>
+
+
+<!-- ARMIE -->
+<div class="btn-group faq-sterowanie" role="group" aria-label="armie">
+  <button id="bestie" class="btn btn-primary">Bestie</button>
+  <button id="dancer" class="btn btn-primary">Dancer</button>
+  <button id="death-breath" class="btn btn-primary">Death Breath</button>
+  <button id="mississipi" class="btn btn-primary">Mississipi</button>
+  <button id="posterunek" class="btn btn-primary">Posterunek</button>
+  <button id="sand-runners" class="btn btn-primary">Sand runners</button>
+  <button id="troglodyci" class="btn btn-primary">Troglodyci</button>
+  <button id="uranopolis" class="btn btn-primary">Uranopolis</button>
+  <button id="sharash" class="btn btn-primary">Sharash</button>
+  <button id="vegas" class="btn btn-primary">Vegas</button>
+</div>
+
+<!-- INNE -->
+<div class="btn-group faq-sterowanie" role="group" aria-label="armie">
+  <button id="tryb-druzynowy" class="btn btn-primary">Tryb drużynowy</button>
+</div>
+
+<!-- WłAŚCIWE FAQ -->
+<div id="faq">
+  <p class="errata">Zniszczony Sztab jest zdejmowany na koniec segmentu inicjatywy, w której został zniszczony.</p>
+  <p class="errata bitwa">Jak któremukolwiek z graczy skończą się żetony do dobierania, powinno być: „Nie można wywoływać Bitwy w inny sposób niż poprzez zapełnienie planszy” zamiast: „Nie można zagrywać żetonów Bitwy”.</p>
+  <p class="errata bitwa">Bitwa nie należy do tury gracza, który ją wywołał.</p>
+  <p class="errata tryb-druzynowy dancer">W trybie pojedynczy gracz kontra drużyna, Dancer nie może grać w drużynie.</p>
+  <p class="errata sand-runners uranopolis sharash moduly">Po zdaniu: „Jeśli kilka Modułów działa jednocześnie na jedną jednostkę, wszystkie te działania kumulują się” powinno znaleźć się uściślenie: „Nie dotyczy to modułów Transportu, których działania nie sumują (kumulują) się i każdy z nich działa niezależnie”.</p>
+  <p class="errata death-breath">Zdanie: „Zawsze, gdy jednostka Death Breath zabije jednostkę przeciwnika, na pustym polu po zabitej jednostce należy położyć znacznik Rany” zostaje zamieniona na „Gdy jednostka Death Breath zada Obrażenie w segmencie Inicjatywy, w której zostaje zniszczona atakowana przez nią jednostka, na pustym polu po zniszczonej jednostce należy położyć znacznik Rany”.</p>
+  <p class="errata posterunek moduly">Opis Skopera powinien brzmieć: Działa na wrogie Moduły. Dopóki wrogi Moduł jest podłączony do Skopera, tak długo Moduł ten wspomaga swoimi pozytywnymi cechami jednostki właściciela Skopera oraz jego sojuszników zamiast własnych, a negatywnymi oddziałuje na jego przeciwników zamiast na niego. Własność ani zasięg działania zeskoperowanego Modułu nie ulegają zmianie.</p>
+  <p class="errata moduly">Opis Dodatkowej inicjatywy (np. Sztab Posterunku, Matka, Główny procesor bojowy, Sierżant, Podwajacz, Wódz) powinien brzmieć: Dodaje sojuszniczym jednostkom dodatkową Inicjatywę, o wartości o jeden niższej od obecnie najwyższej Inicjatywy danej jednostki, po której następuje wartość Inicjatywy, której nie posiada dana jednostka, jeśli taka istnieje.</p>
+  <p class="errata medyk moduly mississipi">Opis Medyka powinien brzmieć: Jeśli własna bądź sojusznicza, będąca w zasięgu, jednostka otrzymuje obrażenia od innego żetonu (planszy czy natychmiastowego) albo znacznika (np. Jadu), wtedy ginie Medyk, chyba że w opisie dawcy albo biorcy Obrażeń napisano inaczej, a tamte rany wraz z dodatkowymi cechami są anulowane.</p>
+  <p class="errata mississipi hegemonia">W opisie działania Zatrucia, następujący fragment jest zbędny: „(chyba że atak zostanie zamieniony na dystansowy, np. przez odpowiedni moduł sojusznika, taki jak Kwatermistrz Hegemonii)”.</p>
+  <p class="errata troglodyci vegas">Opis Skanibalizowania przez jednostki pod wpływem Przejęcia kontroli powinien brzmieć: Jeżeli następuje Przejęcie kontroli nad jednostką ze znacznikiem Sytości, to ona zachowuje go. Jednostka z cechą Kanibalizmu, która została przejęta może Skanibalizować inne jednostki armii, w której posiadaniu jest obecnie niezależnie od ich pierwotnej przynależności, wykorzystuje przy tym znacznik Sytości armii, do której pierwotnie należała jednostka z cechą Kanibalizmu, z której skorzystano. Dalej obowiązuje limit jednego Skanibalizowania na turę.</p>
+  <p class="errata bestie">Opis Latania powinien brzmieć: Jednostka ta nie jest podatna na Ciosy (w tym Friendly Fire), chyba że jest zasieciowana.</p>
+  
+  <p class="podstawowe"></p>
+  <p class=""></p>
+  <p class="errata"></p>
+  <p class="errata"></p>
+  <p class="errata"></p>
+  <p class="errata"></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
