@@ -8,14 +8,32 @@
 <script src="bower_components/jquery-3.7.1.min/index.js"></script>
 <script>
   
-  
   $(document).ready(function(){
-  
-    $("#ukryj-wszystko").click(function(){
+
+    const enabledArmies = new Map();
+    function refreshFAQ() {
+          $("#faq p").hide()
+
+          for (const [key, value] of enabledArmies) {
+            var cssClassToShow = "." + key
+            $(cssClassToShow).show()
+          }
+    }
+    function hideEverything() {
+      enabledArmies.clear()
       $("#faq p").hide()
       $("div.faq-sterowanie button").removeClass("btn-primary").addClass("btn-dark")
+    } 
+
+    hideEverything()
+    $("#ukryj-wszystko").click(function(){
+      hideEverything()
     })
     $("#pokaz-wszystko").click(function(){
+      $("div.faq-sterowanie button").each(function (index) {
+        var buttonId = $(this).attr('id')
+        enabledArmies.set(buttonId, buttonId)
+      });
       $("#faq p").show()
       $("div.faq-sterowanie button").removeClass("btn-dark").addClass("btn-primary")
     })
@@ -25,7 +43,16 @@
       $(this).toggleClass("btn-primary btn-dark");
       var buttonId = $(this).attr('id')
       var cssClassToToggle = '.' + buttonId
-      $(cssClassToToggle).toggle();
+
+
+      if ($(this).hasClass("btn-primary")){
+        enabledArmies.set(buttonId, buttonId)
+        refreshFAQ()
+      } else {
+        enabledArmies.delete(buttonId)
+        refreshFAQ()
+      }
+     
     });
   });
 </script>
@@ -40,7 +67,7 @@
     </svg>
         <div>
           <p>Strona <strong>będzie</strong> zawierać zbiór zasad z FAQ oraz instrukcji, które można w przystępny sposób filtrować. </p>
-          <p> Postępy prac: <strong>4/22</strong> stron FAQ | <strong>0/19</strong> przeniesionych dodatków armijnych
+          <p> Postępy prac: <strong>5/22</strong> stron FAQ | <strong>0/19</strong> przeniesionych dodatków armijnych
         </div>
     
   </div>
@@ -64,6 +91,8 @@
   <button id="bestie" class="btn btn-primary">Bestie</button>
   <button id="dancer" class="btn btn-primary">Dancer</button>
   <button id="death-breath" class="btn btn-primary">Death Breath</button>
+  <button id="doomsday-machine" class="btn btn-primary">Doomsday Machine</button>
+  <button id="mephisto" class="btn btn-primary">Mephisto</button>
   <button id="mississipi" class="btn btn-primary">Mississipi</button>
   <button id="moloch" class="btn btn-primary">Moloch</button>
   <button id="neodzungla" class="btn btn-primary">Neodżungla</button>
@@ -125,8 +154,7 @@
   <p class="rozgrywka bitwa medyk bestie">Jaka jest kolejność deklaracji podczas Bitwy w jednym segmencie Inicjatywy: Klaun, Medyk, Wyrzutnia rakiet, Strzał snajperski, Kwatermistrz, Transformator Gaussa itp.? Gracz, który wywołał Bitwę, decyduje o kolejności, przy czym należy zachować następującą kolejność deklaracji: najpierw deklaruje się wszystkie ataki oraz inne działania zadające Obrażenia lub mające na nie wpływ, następnie działania Medyków, które mogą mieć wpływ na ataki oraz inne działania zadające Obrażenia lub mające na nie wpływ np. dotyczące Agonii, na końcu działania pozostałych Medyków.</p>
   <p class="rozgrywka bitwa">Kto wywołuje Ostatnią Bitwę? Gracz, któremu skończyły się jako pierwszemu żetony, rozpoczął Sekwencję Końcową, czy gracz, który ostatni miał swoją turę? Gracz, któremu skończyły się żetony, bo Ostatnia Bitwa jest integralną częścią Sekwencji Końcowej. Panowanie nad liczbą posiadanych żetonów jest częścią gry.</p>
   <p class="rozgrywk bitwa">Kto wywołuje Bitwę Dogrywkową (Bitwa, którą się przeprowadza w razie remisu po Ostatniej Bitwie)? Gracz, który jako ostatni miał swoją turę przed Ostatnią Bitwą.</p>
-  <p class="rozgrywka bitwa dancer vegas">Czy w przypadku rozgrywki, w której bierze udział Dancer, również przeprowadza się rundę dogrywkową w przypadku remisu po Ostatniej Bitwie? Tak.</p> 
-  <p class="rozgrywka bitwa">Co dzieje się w przypadku, jeśli podczas Bitwy wywołanej zapełnieniem planszy nie spadnie z niej żadna jednostka? Zawsze, gdy po rozegraniu Bitwy wywołanej zapełnieniem planszy, plansza jest dalej zapełniona (na skutek niespadnięcia żadnej jednostki albo dopełnienia planszy przez któregoś z graczy zaraz po Bitwie), automatycznie rozgrywana jest kolejna Bitwa (przed jej rozpoczęciem należy przeprowadzić wszystkie działania rozpatrywane: „po segmentach Inicjatywy”, „na zakończenie Bitwy” oraz „po zakończeniu Bitwy” w tym zdjąć wszystkie znaczniki, które powinny spaść na koniec albo po Bitwie oraz Vegas może obrócić jednostki, które przejął podczas właśnie rozpatrzonej Bitwy) – aż do momentu, gdy jakaś jednostka zostanie zniszczona, w tym wytrzymałość któregoś ze Sztabów (lub Obiektów) spadnie do zera. Jeśli podczas rozgrywania Bitwy żadna z jednostek nie otrzymała Obrażeń ani nie zaszła zmiana na planszy (w Bitwie lub bezpośrednio po niej), która mogłaby doprowadzić do przerwania impasu w skończonej liczbie Bitew, to gra kończy się w tym momencie (należy porównać poziom wytrzymałości Sztabów (lub Obiektów), by wyłonić zwycięzcę – w razie remisu nie przeprowadza się dodatkowej tury). Za wywołującego kolejną Bitwę uważany jest: jeśli nie spadnie żadna jednostka ten z graczy, który wywołał poprzednią Bitwę albo jeśli plansza została ponownie dopełniona po Bitwie, to ten z graczy, który tego dokonał.</p>
+  <p class="rozgrywka bitwa dancer vegas">Czy w przypadku rozgrywki, w której bierze udział Dancer, również przeprowadza się rundę dogrywkową w przypadku remisu po Ostatniej Bitwie? Tak.</p> <p class="rozgrywka">Co dzieje się w przypadku, jeśli podczas Bitwy wywołanej zapełnieniem planszy nie spadnie z niej żadna jednostka? Zawsze, gdy po rozegraniu Bitwy wywołanej zapełnieniem planszy, plansza jest dalej zapełniona (na skutek niespadnięcia żadnej jednostki albo dopełnienia planszy przez któregoś z graczy zaraz po Bitwie), automatycznie rozgrywana jest kolejna Bitwa (przed jej rozpoczęciem należy przeprowadzić wszystkie działania rozpatrywane: „po segmentach Inicjatywy”, „na zakończenie Bitwy” oraz „po zakończeniu Bitwy” w tym zdjąć wszystkie znaczniki, które powinny spaść na koniec albo po Bitwie oraz Vegas może obrócić jednostki, które przejął podczas właśnie rozpatrzonej Bitwy) – aż do momentu, gdy jakaś jednostka zostanie zniszczona, w tym wytrzymałość któregoś ze Sztabów (lub Obiektów) spadnie do zera. Jeśli podczas rozgrywania Bitwy żadna z jednostek nie otrzymała Obrażeń ani nie zaszła zmiana na planszy (w Bitwie lub bezpośrednio po niej), która mogłaby doprowadzić do przerwania impasu w skończonej liczbie Bitew, to gra kończy się w tym momencie (należy porównać poziom wytrzymałości Sztabów (lub Obiektów), by wyłonić zwycięzcę – w razie remisu nie przeprowadza się dodatkowej tury). Za wywołującego kolejną Bitwę uważany jest: jeśli nie spadnie żadna jednostka ten z graczy, który wywołał poprzednią Bitwę albo jeśli plansza została ponownie dopełniona po Bitwie, to ten z graczy, który tego dokonał.</p>
   <p class="rozgrywka bitwa death-breath">Co, jeśli po Bitwie z zapełnienia giną tylko jednostki przeciwnika Death Breath, a na ich miejsce zostaną ożywione nowe, zapełniając plansze ponownie? Rozgrywana jest kolejna Bitwa, zgodnie z zasadą Zapełnionej planszy, aż do momentu zwolnienia co najmniej jednego pola planszy, a w przypadku braku zadanych obrażeń w któreś z Bitew gra się kończy zaraz po niej.</p>
   <p class="rozgrywka bitwa death-breath">Kto wywołuje kolejną Bitwę, którą spowodowało dostawienie po Bitwie jednostek Death Breath? Ten, co wywołał pierwszą Bitwę, wstawienie jest skutkiem poprzedniej Bitwy, czy gracz kierujący Death Breath, bo dzieje się to już po poprzedniej Bitwie i jest opcjonalne. Gracz, który kieruje Death Breath.</p>
   <p class="rozgrywka bitwa">Co dzieje się, gdy po tym, jak jeden z graczy dobierze ostatni żeton i wykona swoją turę, a następny gracz zapełni planszę i wywoła Bitwę, to czy zostaną rozegrane dwie Bitwy (z zapełnienia planszy oraz Ostatnia bitwa), czy tylko jedna? Dwie.</p>
@@ -143,9 +171,39 @@
   <p class="ogolne mississipi posterunek piraci sand-runners">Jeśli mamy jednostkę o inicjatywach 1 i 0, której po wykonaniu ataku w 1 obniżono inicjatywę o 1, to wykona ona atak w 0? Tak.</p>
   <p class="ogolne mississipi posterunek piraci sand-runners sharash stalowa-policja">Czy jednostka posiadająca dwa swoje ataki w 1 i 0 (Sędzia, Plaga) traci drugi atak po przyłączeniu do niego wrogiego modułu dającego -1 do inicjatywy? Tak, wykona tylko jeden atak.</p>
   <p class="ogolne moduly posterunek piraci sand-runners">Jeśli jednostka posiadająca inicjatywy 3 i 2 oraz podłączona jest do modułu Matki, po wykonaniu ataków w 3 i 2 inicjatywie znajdzie się pod wpływem Strefy, ale przed wykonaniem ataku w 1, to wykona atak w 0? Tak.</p>
-  <p class="ogolne"></p>
-  <p class="ogolne"></p>
-  <p class="ogolne"></p>
+  <p class="ogolne moduly">Czy dodatkowy atak (Sztab Posterunku, Matka itp.) następuje w kolejnej inicjatywie po zaistnieniu pierwotnego ataku, czy o jeden niższej od obecnego poziomu inicjatywy tego ataku? O jeden niższej od obecnego. Przy czym nie może dać więcej niż jednej dodatkowej inicjatywy ataku na Bitwę.</p>
+  <p class="ogolne moduly">Czy dwie Matki podpięte do jednej jednostki dodają dwie kolejne inicjatywy, czy tylko jedną? Dwie, jeśli jest taka możliwość. W razie utraty jednej z nich traktuje się, że została utracona, ta co działa później.</p>
+  <p class="ogolne moduly">Co z jednostkami posiadającymi swoje ataki nie w kolejnych inicjatywach, tylko np. 2 i 0 czy 3 i 1, czy wtedy dodatkową inicjatywę otrzymuje po swoich inicjatywach, czy też pomiędzy nimi? Co, jeśli do takiej jednostki podłączone są dwa moduły dodające kolejną inicjatywę? Otrzymuje w pierwszej wolnej inicjatywie niższej od swojej najwyższej inicjatywy, drugi otrzymuje w kolejnej wolnej. W przypadku utraty jednego z bonusów traktuje się, że został stracony, ten co działa później. </p>
+  <p class="ogolne doomsday-machine">Nieskończone combo DDM – Czy jeśli wpada atak o sile 1, to w wyniku niego powstaje nieskończenie wiele ataków o sile 1 czy jeden atak o sile nieskończonej? Nieskończenie wiele ataków o sile 1, Pancerz chroni przed każdym z nich.</p>
+  <p class="ogolne doomsday-machine">Czy jednostka może wykonać więcej niż jeden atak z jednej ścianki w jednym segmencie inicjatywy? Skoro nieskończone combo DDM tak działa, a Roztrajacz i jednostki przekierowujące nie wykonują ataku – nie można ich sparaliżować. Nie.</p>
+  <p class="ogolne medyk">Więcej niż jeden atak w jednej inicjatywie z jednej ścianki a Medyk – Czy Medyk może anulować wszystkie ataki, czy tylko jeden z nich? Jest to wiele ataków, a pochłania tylko jeden, ale pochodzą one z jednej ścianki w jednej inicjatywie. Tylko jeden z nich.</p>
+  <p class="ogolne">Czy jednostka z Cechą Strzał snajperski, w razie zwielokrotnienia tego ataku w jednej Inicjatywie, może wybrać cel dla każdego z ataków z osobna? Tak.</p>
+  <p class="ogolne hegemonia">Czy atak jednostki posiadającej zarówno ikonę Strzału, jak i Ciosu na jednej ściance (np. Uniwersalnego żołnierza) jest traktowany jako dwa oddzielne ataki czy jako jeden o dwóch składowych? Jako jeden o dwóch składowych.</p>
+  <p class="ogolne">Czy Wytrzymałość Sztabu może wykraczać poza zakres 0-20, a Obiektu 0-10? Nie.</p>
+  <p class="ogolne dancer">Czy śmierć jednego z Obiektów jest równoznaczna z wynikiem 0 dla Dancera? Tak.</p>
+  <p class="ogolne dancer mississipi">Czy jeśli w pojedynku Missisipi kontra Dancer w jednej Bitwie zginą jeden albo dwa z Obiektów oraz Sztab Missisipi, to czy taki remis jest traktowany jako 0:0 i Missisipi go wygrywa? Tak.</p>
+  <p class="ogolne">Czy można wykonać Obrót a dopiero po nim wykonać Ruch? Zagrywając żeton Ruchu albo korzystając z Mobilności, czy modułu Ruchu wykonujemy: Ruch, Obrót albo jednoczesny Ruch z Obrotem. Nie można obrócić np. Agitatora i przejąć nim i obrócić jednostkę a dopiero potem wykonać Ruch.</p>
+  <p class="ogolne siec">Ruch, Obrót – Czy Obrót jest skokowy, czy ciągły? Np. czy można obrócić sieciarza, którego sieć jest skierowana na inną sieć i się znoszą o więcej niż jedną ściankę, czy od razu po minięciu się sieci zostanie zasieciowana. Skokowo, więc można dowolnie obrócić.</p>
+  <p class="ogolne nowy-jork moduly">Czy jednostka utrzymywana przy życiu przez Moduł (lub Sztab Nowego Jorku) dający wytrzymałość podczas ruchu (Ruch, Odepchnięcie, Roszada) ginie w trakcie ruchu czy dopiero jak przejdzie na nowe pole i zdąży np. zdetonować Minę? Ginie po wejściu na pole, zdąży zdetonować Minę.</p>
+  <p class="ogolne death-breath vegas mephisto">Czy można dokonać zamiany miejsc dwóch jednostek (np. Roszada, Roszada z przeciwnikiem, Zamiana), jeśli jedna z nich na skutek takiej zamiany zostanie zniszczona? Tak.</p>
+  <p class="ogolne dancer">Taniec – Czy Dancer może wykonać Taniec, jeśli na początku swojej tury nie posiada żadnego żetonu do odrzucenia? Może to nastąpić w turze pomiędzy Ostatnią Bitwą a Bitwą Dogrywkową. Tak.</p>
+  <p class="ogolne dancer">Taniec – Czy przeprowadzane działania na Obiektach podczas Tańca są uważane za równoczesne, czy jednak można je wykonywać po kolei, wykorzystując zaistniałe zmiany? Są równoczesne. Zaistniałe zmiany należy wprowadzić dopiero po przeprowadzaniu wszystkich działań wynikających z Tańca.</p>
+  <p class="ogolne sharash">Czy można żetonem natychmiastowym Paraliż (Sharrash), sparaliżować żeton podłoża? Nie można.</p>
+  <p class="ogolne uranopolis">Czy Promień (Uranopolis) może niszczyć żetony podłoża? Tak.</p>
+  <p class="ogolne stalowa-policja smart">Czy można wystawić żeton podłoża, kiedy któryś z innych graczy zagrał Terror? Nie można.</p>
+  <p class="ogolne moloch neodzungla uranopolis troglodyci piraci">Czy można za cel działania żetonu natychmiastowego zadającego obrażenia (np. Bomba, Mała bomba, Promień) wybrać Sztab (któremu nie może zadać obrażeń) zamiast żetonu podłoża, na którym stoi? Tak.</p>
+  <p class="ogolne stalowa-policja">Odbicie - Kto wykonuje atak, jednostka rzeczywiście atakująca czy jednostka odbijająca? Dla kogo liczą się obrażenia w grze na punkty? Jednostka wykonująca atak, Odbicie nie jest wykonaniem ataku. Nie otrzymuje się punktów za obrażenia zadane własnemu albo sojuszniczemu Sztabowi.</p>
+  <p class="ogolne stalowa-policja">Co stanie się z atakiem, który utkwi między dwoma Odbiciami? Jego efekt zostaje anulowany. </p>
+  <p class="ogolne stalowa-policja">Skoro Odbicie nie chroni przed odłamkami Klauna, to także nie chroni przed: Mad Bomberem, Pułapką, Toksyczną Bombą, Kwasomiotem, Fanatykiem? Tak.</p>
+  <p class="ogolne stalowa-policja">Odbicie - Czy odłamki np. Klauna, Mad Bombera, Pułapki, Kwasomiotu, Toksycznej Bomby, Fanatyka są atakiem?Nie.</p>
+  <p class="ogolne stalowa-policja medyk">Skoro odłamki (np. Klaun, Kwasomiot, Toksyczna Bomba, Fanatyk, Mad Bomber) nie są atakiem, to czy Medyk chroni przed Obrażeniami zadanymi przez nie? Tak.</p>
+  <p class="ogolne mississipi">Czy odłamki można dopakować jadem z Bojlera? Nie.</p>
+
+
+
+
+
+
   <p></p>
   <p></p>
   <p></p>
