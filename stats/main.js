@@ -37,6 +37,7 @@ $(document).ready(function(){
         });
     }
 
+    $("button#showGamesCount").hide()
     $("button#compute").click(function(){
         $("#statistics").empty()
         for (var armyName of armiesList) {
@@ -54,7 +55,8 @@ $(document).ready(function(){
                 for (let againstArmy of collectArmiesAgainst) {
                     if (armyName !== againstArmy) {
                         var percentage = DATA["ArmiesStatsMap"][armyName]["StatsVsOtherArmiesMap"][againstArmy]["armyWinPercentage"]
-                        $('ul#'+armyNameWithoutSpaces).append("<li class='list-group-item " + cssClassForPercentage(percentage) + "'>" + " wygrywa <strong>" + percentage + "% </strong> meczów przeciwko <strong>" + againstArmy + "</strong></li>")
+                        var gamesCount = DATA["ArmiesStatsMap"][armyName]["StatsVsOtherArmiesMap"][againstArmy]["armyGamesCount"]
+                        $('ul#'+armyNameWithoutSpaces).append("<li class='list-group-item " + cssClassForPercentage(percentage) + "'>" + " wygrywa <strong>" + percentage + "% </strong> meczów przeciwko <strong>" + againstArmy + "</strong> <small style='display: none;' class='gamesCount'> (" + gamesCount + " gier)</small></li>")
 
                         if (percentage < min || min === undefined) {
                             min = percentage
@@ -70,19 +72,20 @@ $(document).ready(function(){
                     }
                 }
 
-                // avg = 100 - avg
-
-                console.log(armyName + " min: " + min + " max: " + max + " avg: " + avg)
-                // $("#statistics").append("<h3 class='stats'>" + " min: " + min + "% max: " + max + "% avg: " + avg.toFixed(2) + "%</h3>")
                 $('div#'+armyNameWithoutSpaces).append("<div class='card-footer fw-semibold'>" + " min: " + min + "% max: " + max + "% avg: " + avg.toFixed(2) + "%</div>")
-
             }
         }
+        $("button#showGamesCount").show()
     });
 
-    //TODO: UI for selecting opponent armies
+    $("button#showGamesCount").click(function(){
+        $("small.gamesCount").toggle()
 
-    // compute stats
+        $(this).text(function(i, text){
+            return text === "Pokaż liczbę gier" ? "Schowaj liczbę gier" : "Pokaż liczbę gier";
+        })
+    });
+
 
 });
 
@@ -99,7 +102,3 @@ function cssClassForPercentage(percentage) {
         return ""
     }
 }
-
-// (function(){
-
-// })();

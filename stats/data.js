@@ -1047,96 +1047,96 @@ var DATA = {
         "Moloch": {
             "StatsVsOtherArmiesMap": {
                 "Beasts": {
-                    "armyGamesCount": 117,
-                    "armyWinPercentage": 25.6
+                    "armyGamesCount": 175,
+                    "armyWinPercentage": 49.1
+                },
+                "Borgo": {
+                    "armyGamesCount": 214,
+                    "armyWinPercentage": 59.3
                 },
                 "Dancer": {
-                    "armyGamesCount": 41,
-                    "armyWinPercentage": 58.5
+                    "armyGamesCount": 77,
+                    "armyWinPercentage": 36.4
                 },
                 "Death Breath": {
-                    "armyGamesCount": 119,
-                    "armyWinPercentage": 31.9
+                    "armyGamesCount": 208,
+                    "armyWinPercentage": 48.6
                 },
                 "Desert Tribes": {
-                    "armyGamesCount": 13,
-                    "armyWinPercentage": 30.8
+                    "armyGamesCount": 10,
+                    "armyWinPercentage": 90
                 },
                 "Doomsday Machine": {
-                    "armyGamesCount": 32,
-                    "armyWinPercentage": 53.1
+                    "armyGamesCount": 42,
+                    "armyWinPercentage": 42.9
                 },
                 "Hegemony": {
-                    "armyGamesCount": 127,
-                    "armyWinPercentage": 55.1
-                },
-                "Iron Gang": {
-                    "armyGamesCount": 51,
-                    "armyWinPercentage": 41.2
-                },
-                "Mephisto": {
-                    "armyGamesCount": 84,
-                    "armyWinPercentage": 14.3
-                },
-                "Merchants Guild": {
-                    "armyGamesCount": 17,
-                    "armyWinPercentage": 41.2
-                },
-                "Missisipi": {
-                    "armyGamesCount": 131,
-                    "armyWinPercentage": 38.2
-                },
-                "Moloch": {
-                    "armyGamesCount": 214,
-                    "armyWinPercentage": 40.7
-                },
-                "Neojungle": {
-                    "armyGamesCount": 33,
-                    "armyWinPercentage": 93.9
-                },
-                "New York": {
-                    "armyGamesCount": 65,
-                    "armyWinPercentage": 53.8
-                },
-                "Outpost": {
-                    "armyGamesCount": 75,
-                    "armyWinPercentage": 73.3
-                },
-                "Partisans": {
-                    "armyGamesCount": 5,
+                    "armyGamesCount": 135,
                     "armyWinPercentage": 60
                 },
-                "Pirates": {
-                    "armyGamesCount": 46,
-                    "armyWinPercentage": 58.7
+                "Iron Gang": {
+                    "armyGamesCount": 56,
+                    "armyWinPercentage": 55.4
                 },
-                "Sand Runners": {
-                    "armyGamesCount": 118,
-                    "armyWinPercentage": 50
+                "Mephisto": {
+                    "armyGamesCount": 116,
+                    "armyWinPercentage": 32.8
                 },
-                "Sharrash": {
-                    "armyGamesCount": 57,
-                    "armyWinPercentage": 50.9
+                "Merchants Guild": {
+                    "armyGamesCount": 34,
+                    "armyWinPercentage": 20.6
                 },
-                "Smart": {
-                    "armyGamesCount": 94,
-                    "armyWinPercentage": 45.7
+                "Missisipi": {
+                    "armyGamesCount": 191,
+                    "armyWinPercentage": 58.6
                 },
-                "Steel Police": {
-                    "armyGamesCount": 130,
-                    "armyWinPercentage": 41.5
-                },
-                "Troglodytes": {
-                    "armyGamesCount": 101,
-                    "armyWinPercentage": 27.7
-                },
-                "Uranopolis": {
-                    "armyGamesCount": 42,
+                "Neojungle": {
+                    "armyGamesCount": 36,
                     "armyWinPercentage": 66.7
                 },
+                "New York": {
+                    "armyGamesCount": 67,
+                    "armyWinPercentage": 63.8
+                },
+                "Outpost": {
+                    "armyGamesCount": 98,
+                    "armyWinPercentage": 51
+                },
+                "Partisans": {
+                    "armyGamesCount": 11,
+                    "armyWinPercentage": 36.4
+                },
+                "Pirates": {
+                    "armyGamesCount": 48,
+                    "armyWinPercentage": 66.7
+                },
+                "Sand Runners": {
+                    "armyGamesCount": 233,
+                    "armyWinPercentage": 39.9
+                },
+                "Sharrash": {
+                    "armyGamesCount": 91,
+                    "armyWinPercentage": 39.6
+                },
+                "Smart": {
+                    "armyGamesCount": 122,
+                    "armyWinPercentage": 50
+                },
+                "Steel Police": {
+                    "armyGamesCount": 222,
+                    "armyWinPercentage": 50.5
+                },
+                "Troglodytes": {
+                    "armyGamesCount": 138,
+                    "armyWinPercentage": 54.3
+                },
+                "Uranopolis": {
+                    "armyGamesCount": 52,
+                    "armyWinPercentage": 48.1
+                },
                 "Vegas": {
-                    "armyGamesCount": 38,
-                    "armyWinPercentage": 57.9
+                    "armyGamesCount": 41,
+                    "armyWinPercentage": 73.2
                 }
             }
         },
