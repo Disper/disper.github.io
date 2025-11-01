@@ -86,7 +86,7 @@ $(document).ready(function(){
         })
     });
 
-
+    $("#lastUpdate").text("Data ostatniej aktualizacji danych: " + DATA["created"])
 });
 
 function cssClassForPercentage(percentage) {
