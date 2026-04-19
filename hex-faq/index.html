@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  p { font-size: xx-large;}
+</style>
+<title>Neuroshima Hex FAQ</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<script src="bower_components/jquery-3.7.1.min/index.js"></script>
+<script>
+  
+  $(document).ready(function(){
+
+    const enabledArmies = new Map();
+    function refreshFAQ() {
+          $("#faq p").hide()
+
+          for (const [key, value] of enabledArmies) {
+            var cssClassToShow = "." + key
+            $(cssClassToShow).show()
+          }
+    }
+    function hideEverything() {
+      enabledArmies.clear()
+      $("#faq p").hide()
+      $("div.faq-sterowanie button").removeClass("btn-primary").addClass("btn-dark")
+    } 
+
+    hideEverything
+    $("#ukryj-wszystko").click(function(){
+      hideEverything()
+    })
+    $("#pokaz-wszystko").click(function(){
+      $("div.faq-sterowanie button").each(function (index) {
+        var buttonId = $(this).attr('id')
+        enabledArmies.set(buttonId, buttonId)
+      });
+      $("#faq p").show()
+      $("div.faq-sterowanie button").removeClass("btn-dark").addClass("btn-primary")
+    })
+
+
+    $("div.faq-sterowanie button").click(function(){
+      $(this).toggleClass("btn-primary btn-dark");
+      var buttonId = $(this).attr('id')
+      var cssClassToToggle = '.' + buttonId
+
+
+      if ($(this).hasClass("btn-primary")){
+        enabledArmies.set(buttonId, buttonId)
+        refreshFAQ()
+      } else {
+        enabledArmies.delete(buttonId)
+        refreshFAQ()
+      }
+     
+    });
+
+    hideEverything()
+  });
+
+  
+</script>
+
+</head>
+<body >
+<h1>Neuroshima Hex FAQ</h1>
+    <div
+  <div class="alert alert-primary d-flex align-items-center" role="alert">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+    </svg>
+        <div>
+          <p>Strona <strong>będzie</strong> zawierać zbiór zasad z FAQ oraz instrukcji, które można w przystępny sposób filtrować. </p>
+          <p> Postępy prac: <strong>11/22</strong> stron FAQ | <strong>0/19</strong> przeniesionych dodatków armijnych
+        </div>
+    
+  </div>
+<!-- PODSTAWOWE -->
+
+<div class="btn-group przyciski-sterowanie" role="group" aria-label="ustawienia">
+  <button id="ukryj-wszystko" class="btn btn-info bi-lightbulb-off-fill">Ukryj wszystko</button>
+  <button id="pokaz-wszystko" class="btn btn-info bi-lightbulb">Pokaż wszystko</button>
+</div>
+
+<div class="btn-group faq-sterowanie" role="group" aria-label="podstawowe">
+  <button id="errata" class="btn btn-primary">Errata</button>
+  <button id="bitwa" class="btn btn-primary">Bitwa</button>
+  <button id="moduly" class="btn btn-primary">Moduły</button>
+  <button id="siec" class="btn btn-primary">Sieć</button>
+</div>
+
+
+<!-- ARMIE -->
+<div class="btn-group faq-sterowanie" role="group" aria-label="armie">
+  <button id="bestie" class="btn btn-primary">Bestie</button>
+  <button id="dancer" class="btn btn-primary">Dancer</button>
+  <button id="death-breath" class="btn btn-primary">Death Breath</button>
+  <button id="doomsday-machine" class="btn btn-primary">Doomsday Machine</button>
+</div>
+<div class="btn-group faq-sterowanie" role="group" aria-label="armie">
+  <button id="mephisto" class="btn btn-primary">Mephisto</button>
+  <button id="mississipi" class="btn btn-primary">Mississipi</button>
+  <button id="moloch" class="btn btn-primary">Moloch</button>
+  <button id="neodzungla" class="btn btn-primary">Neodżungla</button>
+</div>
+<div class="btn-group faq-sterowanie" role="group" aria-label="armie">
+  <button id="nowy-jork" class="btn btn-primary">Nowy Jork</button>
+  <button id="piraci" class="btn btn-primary">Piraci</button>
+  <button id="posterunek" class="btn btn-primary">Posterunek</button>
+  <button id="sand-runners" class="btn btn-primary">Sand runners</button>
+</div>
+<div class="btn-group faq-sterowanie" role="group" aria-label="armie">
+  <button id="troglodyci" class="btn btn-primary">Troglodyci</button>
+  <button id="uranopolis" class="btn btn-primary">Uranopolis</button>
+  <button id="sharash" class="btn btn-primary">Sharash</button>
+  <button id="smart" class="btn btn-primary">Smart</button>
+</div>
+  <div class="btn-group faq-sterowanie" role="group" aria-label="armie">
+  <button id="stalowa-policja" class="btn btn-primary">Stalowa Policja</button>
+  <button id="vegas" class="btn btn-primary">Vegas</button>
+</div>
+
+<!-- INNE -->
+<div class="btn-group faq-sterowanie" role="group" aria-label="armie">
+  <button id="podstawowe" class="btn btn-primary">Podstawowe</button>
+  <button id="rozgrywka" class="btn btn-primary">Rozgrywka</button>
+  <button id="ogolne" class="btn btn-primary">Ogólne</button>
+  <button id="tryb-druzynowy" class="btn btn-primary">Tryb drużynowy</button>
+</div>
+
+<!-- WłAŚCIWE FAQ -->
+<div id="faq">
+  <p class="errata">Zniszczony Sztab jest zdejmowany na koniec segmentu inicjatywy, w której został zniszczony.</p>
+  <p class="errata bitwa">Jak któremukolwiek z graczy skończą się żetony do dobierania, powinno być: „Nie można wywoływać Bitwy w inny sposób niż poprzez zapełnienie planszy” zamiast: „Nie można zagrywać żetonów Bitwy”.</p>
+  <p class="errata bitwa">Bitwa nie należy do tury gracza, który ją wywołał.</p>
+  <p class="errata tryb-druzynowy dancer">W trybie pojedynczy gracz kontra drużyna, Dancer nie może grać w drużynie.</p>
+  <p class="errata sand-runners uranopolis sharash moduly">Po zdaniu: „Jeśli kilka Modułów działa jednocześnie na jedną jednostkę, wszystkie te działania kumulują się” powinno znaleźć się uściślenie: „Nie dotyczy to modułów Transportu, których działania nie sumują (kumulują) się i każdy z nich działa niezależnie”.</p>
+  <p class="errata death-breath">Zdanie: „Zawsze, gdy jednostka Death Breath zabije jednostkę przeciwnika, na pustym polu po zabitej jednostce należy położyć znacznik Rany” zostaje zamieniona na „Gdy jednostka Death Breath zada Obrażenie w segmencie Inicjatywy, w której zostaje zniszczona atakowana przez nią jednostka, na pustym polu po zniszczonej jednostce należy położyć znacznik Rany”.</p>
+  <p class="errata posterunek moduly">Opis Skopera powinien brzmieć: Działa na wrogie Moduły. Dopóki wrogi Moduł jest podłączony do Skopera, tak długo Moduł ten wspomaga swoimi pozytywnymi cechami jednostki właściciela Skopera oraz jego sojuszników zamiast własnych, a negatywnymi oddziałuje na jego przeciwników zamiast na niego. Własność ani zasięg działania zeskoperowanego Modułu nie ulegają zmianie.</p>
+  <p class="errata moduly">Opis Dodatkowej inicjatywy (np. Sztab Posterunku, Matka, Główny procesor bojowy, Sierżant, Podwajacz, Wódz) powinien brzmieć: Dodaje sojuszniczym jednostkom dodatkową Inicjatywę, o wartości o jeden niższej od obecnie najwyższej Inicjatywy danej jednostki, po której następuje wartość Inicjatywy, której nie posiada dana jednostka, jeśli taka istnieje.</p>
+  <p class="errata medyk moduly mississipi">Opis Medyka powinien brzmieć: Jeśli własna bądź sojusznicza, będąca w zasięgu, jednostka otrzymuje obrażenia od innego żetonu (planszy czy natychmiastowego) albo znacznika (np. Jadu), wtedy ginie Medyk, chyba że w opisie dawcy albo biorcy Obrażeń napisano inaczej, a tamte rany wraz z dodatkowymi cechami są anulowane.</p>
+  <p class="errata mississipi hegemonia">W opisie działania Zatrucia, następujący fragment jest zbędny: „(chyba że atak zostanie zamieniony na dystansowy, np. przez odpowiedni moduł sojusznika, taki jak Kwatermistrz Hegemonii)”.</p>
+  <p class="errata troglodyci vegas">Opis Skanibalizowania przez jednostki pod wpływem Przejęcia kontroli powinien brzmieć: Jeżeli następuje Przejęcie kontroli nad jednostką ze znacznikiem Sytości, to ona zachowuje go. Jednostka z cechą Kanibalizmu, która została przejęta może Skanibalizować inne jednostki armii, w której posiadaniu jest obecnie niezależnie od ich pierwotnej przynależności, wykorzystuje przy tym znacznik Sytości armii, do której pierwotnie należała jednostka z cechą Kanibalizmu, z której skorzystano. Dalej obowiązuje limit jednego Skanibalizowania na turę.</p>
+  <p class="errata bestie">Opis Latania powinien brzmieć: Jednostka ta nie jest podatna na Ciosy (w tym Friendly Fire), chyba że jest zasieciowana.</p>
+  <p class="errata gildia-kupcow">Zawartość ramki na s. 3 Instrukcji Gildii Kupców od słów „Kolejność możliwych” powinna brzmieć: „Gracz kierujący Gildią 1Kupców w swojej turze przed obowiązkowym odrzuceniem jednego żetonu na początku tury może zagrać żeton Czarnego Rynku oraz/albo uruchomić Wszczep, kolejność tych działań jest dowolna”.</p>  
+  <p class="podstawowe">Które zapisy zasad w przypadku różnic pomiędzy wersjami językowymi należy uznać za prawidłowe: polskie czy angielskie? Jeśli dany przypadek nie został opisany w niniejszym dokumencie, to należy przyjąć, że prawidłowy zapis jest w polskiej wersji instrukcji.</p>
+  <p class="podstawowe">Czy można grać dwoma takimi samymi armiami przeciw sobie? Nie, zasady tego nie przewidują, a jeśli ktoś chce tak grać, to musi sam wyjaśnić wątpliwości, które powstaną.</p>
+  <p class="podstawowe">Czy gracz ma prawo do wglądu do instrukcji podczas gry, w szczególności do opisu armii biorących udział w rozgrywce Tak.</p>
+  <p class="podstawowe">Czy gracz ma prawo do wglądu do stosów żetonów odrzuconych swojego, jak i przeciwnika? Tak.</p>
+  <p class="podstawowe">Czy żetony umieszczone w stosie żetonów odrzuconych muszą być ustawione w stos, czy mogą być rozłożone i posegregowane rodzajami w celu łatwiejszej kontroli żetonów się w nim znajdujących? Jeśli jest wystarczająco dużo miejsca, można je rozłożyć i posegregować.</p>
+  <p class="podstawowe">Czy można cofać ruchy w swojej turze? Tak, ale tylko do czasu uzyskania nowej informacji przez aktywnego gracza (np. podjęcia decyzji przez przeciwnika czy dobrania nowego żetonu) oraz gracze muszą być zgodnico do poprawności odtworzonej sytuacji. Rozpoczęcie Bitwy kończy turę gracza, więc po jej rozpoczęciu już nie można cofnąć jej wywołania.</p>
+  <p class="podstawowe">Czy znaczniki danej frakcji, gdy zostaną wykorzystane, usunięte albo odrzucone, to trafiają znowu do puli dostępnych? Tak, chyba że wprost jest napisane inaczej.</p>
+  <p class="podstawowe">Czy znaczniki danej frakcji są ograniczone liczbą komponentów? Tak, chyba że wprost jest napisane inaczej.</p>
+  <p class="podstawowe">Czy znaczniki ogólne są ograniczone liczbą komponentów? Nie, w razie niewystarczającej liczby komponentów należy wykorzystać zamienniki.</p>
+  <p class="rozgrywka">Czy żetony dobieramy po jednym, czy wszystkie naraz? Po jednym i przed dobraniem kolejnego żetonu należy ujawnić właśnie dobrany żeton.</p>
+  <p class="rozgrywka">Jak należy rozpaprywać oddziaływanie skutków działań przerwanych podczas tury gracza? Poza Bitwą oddziaływanie skutków działań jest przerywane natychmiast po ustaniu danego działania. Dotyczy to również działań, w których opisach jest napisane, że działają do końca danego segmentu Bitwy. Nie oddziałują one do końca tury.</p>
+  <p class="rozgrywka vegas piraci gildia-kupcow">Kiedy dokładnie są rozpatrywane jednorazowe efekty „w momencie wyłożenia/wystawienia/zagrania/przejmowania” (np. Abordaż, Rekonesans, Dywersja, Uzbrojenie pułapki, Przejęcie kontroli) przed czy po rozpatrzeniu układu na planszy? W trakcie jego rozpatrywania, ale należy pamiętać, iż efekty wymagające podjęcia decyzji (nawet z jedną możliwością ewentualnego wyboru) są rozpatrywane po rozpatrzeniu efektów automatycznych. Zatem niektóre efekty mogą zostać zablokowane (np. przez Sieć), zostać wykonane przez innego gracza (np. Przejęci kontroli) albo zostać opóźnione na zakończenie innych działań (np. Bitwa z zapełnienia).</p>
+  <p class="rozgrywka gildia-kupcow">Kiedy dokładnie opłaca się cechy Wojowników Gamblami (jeśli dana armia z nich korzysta), przed czy po dołożeniu żetonu na planszę i rozpoczęciu rozpatrywania układu? Cechy Wojowników opłaca się podczas wykładania, zatem zanim fizycznie znajdzie się na planszy i zacznie się wzajemne oddziaływanie danego żetonu i tych znajdujących się na planszy.</p>
+  <p class="rozgrywka gildia-kupcow">Czy zezwolenie na wykonywanie niektórych działań w turze przed obowiązkowym odrzuceniem jednego żetonu, jest wyjątkiem dla Gildii Kupców, czy dotyczy również pozostałych armii? Zasada ta stanowi wyjątek dla Gildii Kupców.</p>
+  <p class="rozgrywka"> Czy gracz może uzyskać nowe informacje na skutek działań przeprowadzonych przed obowiązkowym odrzuceniem żetonu, jeśli na takie działania wprost zezwalają zasady gry? Tak.</p> 
+  <p class="rozgrywka"> Czy kolejność możliwych działań w turze, opisana w Instrukcji Gildii Kupców jest obligatoryjna, czy tylko pozwala na wykonywanie przez nich niektórych działań w innej kolejności niż normalnie? Nie jest obligatoryjna i pozwala graczowi na wykonywanie pewnych działań przed obowiązkowym odrzuceniem jednego żetonu. Przy czym gracz owe czynności może wykonywać w wybranej przez siebie kolejności</p>.
+
+  <p class="rozgrywka bitwa">Jak powinien być rozpatrywany układ żetonów na planszy? Układ należy rozpatrywać jako całość, przed wprowadzeniem zmian (w żetonach czy znacznikach) na planszy należy upewnić się, czy na pewno one zajdą po uwzględnianiu pozostałych działań, które oddziałują w danym momencie (np. Sieciarz, który jest sieciowany przez innego Sieciarza, nie będzie sieciował (chyba że kieruje on swoją Sieć na jednostkę umożliwiającą sieciowanie drugiemu Sieciarzowi)). Należy pamiętać, że Bitwa pomimo rozbudowanej struktury jest jednym układem.</p>
+  <p class="rozgrywka nowy-jork stalowa-policja">Czy kolejność dodawania/odejmowania żetonów do/od układu na planszy ma znaczenie dla rozpatrywania układu żetonów na planszy? Nie, układ żetonów na planszy zawsze jest rozpatrywany tak samo (poza przypadkami, kiedy gracze mają do podjęcia jakieś decyzje), niezależnie od kolejności dołączania do lub odłączania od niego poszczególnych żetonów oraz przyczyny wywołującej zmiany (zagranie nowego żetonu czy poruszenie już obecnego na planszy). Należy pamiętać, że część zdolności działa w trakcie dodawania do układu (np. detonacja Miny czy zdolność Egzekutora), więc ich działanie należy rozpatrzyć, zanim zaczniemy rozpatrywać układ.</p>
+  <p class="rozgrywka">Czy działania wymagające podjęcia decyzji przez gracza są równoczesne, czy opóźnione względem działań automatycznych? Działania wymagające podjęcia decyzji są opóźnione względem działań automatycznych. Przy czym należy pamiętać, że działania odbywające się w jednym segmencie Inicjatywy są równoczesne oraz ewentualne Obroty podczas przemieszczania się są częścią tego przemieszczania i odbywają się na potrzeby zasad pomiędzy dwoma polami.</p>
+  <p class="rozgrywka mississipi stalowa-policja dancer vegas bestie">Czy rozmieszczanie Sztabów jest traktowane jako tura gracza i czy wtedy można używać zdolności specjalnych sztabów? Czy w szczególności Missisipi może wtedy odepchnąć Sztab/Obiekt przeciwnika, Stalowa Policja zasieciować Obiekt, a Vegas przejąć i obrócić Obiekt? Nie jest i nie można wtedy jeszcze z nich korzystać (z wyjątkiem cechy Siedlisko). Vegas przejmuje automatycznie, ewentualny obrót przejętej jednostki jest wykonywany na koniec rozmieszczania Sztabów.</p>
+  <p class="rozgrywka death-breath">Czy moment Ożywiania można traktować jako turę gracza Death Breath i skorzystać wtedy z cech swoich żetonów na planszy np. Macek? Nie.</p>
+  <p class="rozgrywka bitwa">Jaka jest kolejność działań zagrywania żetonów oraz wykorzystywania zdolności czy cech już zagranych żetonów? Po dobraniu żetonów i odrzuceniu jednego z nich (jeśli wymagane) do czasu zakończenia tury (w tym przez wywołanie Bitwy, gracz sam decyduje o kolejności podejmowanych działań takich jak zagrywanie żetonów czy wykorzystywanie zdolności i cech już zagranych żetonów (w tym można te kolejności w dowolny sposób mieszać).</p>
+  <p class="rozgrywka">Czy można korzystać ze zdolności (w tym cech) Żetonu planszy wystawionego w danej turze? Tak, chyba że jego wystawienie wywołuje Bitwę.</p>
+  <p class="rozgrywka bitwa">Czy można skorzystać ze zdolności jednostki dopełniającej planszę lub innej po zapełnieniu planszy? Nie można.</p>
+  <p class="rozgrywka bitwa siec">Czy dopełnienie planszy Sieciarzem, który sieciuje zewnętrzne źródło dodatkowej Wytrzymałości jakiejś jednostki, pozbawiając ją tym samym dostatecznej jej ilości do pozostania na planszy, wywoła Bitwę? Nie.</p>
+  <p class="rozgrywka bitwa vegas">Czy dopełnienie planszy Agitatorem, Który przejmie jednostkę pootrzymywaną przy życiu na planszy przez dodatkową wytrzymałość albo który przejmie moduł dodatkowej wytrzymałości jakiejś jednostki, którą on podtrzymywał przy życiu na planszy, wywoła Bitwę? Nie.</p>
+  <p class="rozgrywka bitwa">Czy Bitwa wywołana przez jakiegoś z graczy należy do jego tury? Nie.</p>
+  <p class="rozgrywka bitwa medyk bestie">Jaka jest kolejność deklaracji podczas Bitwy w jednym segmencie Inicjatywy: Klaun, Medyk, Wyrzutnia rakiet, Strzał snajperski, Kwatermistrz, Transformator Gaussa itp.? Gracz, który wywołał Bitwę, decyduje o kolejności, przy czym należy zachować następującą kolejność deklaracji: najpierw deklaruje się wszystkie ataki oraz inne działania zadające Obrażenia lub mające na nie wpływ, następnie działania Medyków, które mogą mieć wpływ na ataki oraz inne działania zadające Obrażenia lub mające na nie wpływ np. dotyczące Agonii, na końcu działania pozostałych Medyków.</p>
+  <p class="rozgrywka bitwa">Kto wywołuje Ostatnią Bitwę? Gracz, któremu skończyły się jako pierwszemu żetony, rozpoczął Sekwencję Końcową, czy gracz, który ostatni miał swoją turę? Gracz, któremu skończyły się żetony, bo Ostatnia Bitwa jest integralną częścią Sekwencji Końcowej. Panowanie nad liczbą posiadanych żetonów jest częścią gry.</p>
+  <p class="rozgrywk bitwa">Kto wywołuje Bitwę Dogrywkową (Bitwa, którą się przeprowadza w razie remisu po Ostatniej Bitwie)? Gracz, który jako ostatni miał swoją turę przed Ostatnią Bitwą.</p>
+  <p class="rozgrywka bitwa dancer vegas">Czy w przypadku rozgrywki, w której bierze udział Dancer, również przeprowadza się rundę dogrywkową w przypadku remisu po Ostatniej Bitwie? Tak.</p> <p class="rozgrywka">Co dzieje się w przypadku, jeśli podczas Bitwy wywołanej zapełnieniem planszy nie spadnie z niej żadna jednostka? Zawsze, gdy po rozegraniu Bitwy wywołanej zapełnieniem planszy, plansza jest dalej zapełniona (na skutek niespadnięcia żadnej jednostki albo dopełnienia planszy przez któregoś z graczy zaraz po Bitwie), automatycznie rozgrywana jest kolejna Bitwa (przed jej rozpoczęciem należy przeprowadzić wszystkie działania rozpatrywane: „po segmentach Inicjatywy”, „na zakończenie Bitwy” oraz „po zakończeniu Bitwy” w tym zdjąć wszystkie znaczniki, które powinny spaść na koniec albo po Bitwie oraz Vegas może obrócić jednostki, które przejął podczas właśnie rozpatrzonej Bitwy) – aż do momentu, gdy jakaś jednostka zostanie zniszczona, w tym wytrzymałość któregoś ze Sztabów (lub Obiektów) spadnie do zera. Jeśli podczas rozgrywania Bitwy żadna z jednostek nie otrzymała Obrażeń ani nie zaszła zmiana na planszy (w Bitwie lub bezpośrednio po niej), która mogłaby doprowadzić do przerwania impasu w skończonej liczbie Bitew, to gra kończy się w tym momencie (należy porównać poziom wytrzymałości Sztabów (lub Obiektów), by wyłonić zwycięzcę – w razie remisu nie przeprowadza się dodatkowej tury). Za wywołującego kolejną Bitwę uważany jest: jeśli nie spadnie żadna jednostka ten z graczy, który wywołał poprzednią Bitwę albo jeśli plansza została ponownie dopełniona po Bitwie, to ten z graczy, który tego dokonał.</p>
+  <p class="rozgrywka bitwa death-breath">Co, jeśli po Bitwie z zapełnienia giną tylko jednostki przeciwnika Death Breath, a na ich miejsce zostaną ożywione nowe, zapełniając plansze ponownie? Rozgrywana jest kolejna Bitwa, zgodnie z zasadą Zapełnionej planszy, aż do momentu zwolnienia co najmniej jednego pola planszy, a w przypadku braku zadanych obrażeń w któreś z Bitew gra się kończy zaraz po niej.</p>
+  <p class="rozgrywka bitwa death-breath">Kto wywołuje kolejną Bitwę, którą spowodowało dostawienie po Bitwie jednostek Death Breath? Ten, co wywołał pierwszą Bitwę, wstawienie jest skutkiem poprzedniej Bitwy, czy gracz kierujący Death Breath, bo dzieje się to już po poprzedniej Bitwie i jest opcjonalne. Gracz, który kieruje Death Breath.</p>
+  <p class="rozgrywka bitwa">Co dzieje się, gdy po tym, jak jeden z graczy dobierze ostatni żeton i wykona swoją turę, a następny gracz zapełni planszę i wywoła Bitwę, to czy zostaną rozegrane dwie Bitwy (z zapełnienia planszy oraz Ostatnia bitwa), czy tylko jedna? Dwie.</p>
+  <p class="rozgrywka bitwa">Czy przed Ostatnią Bitwą można zachować żetony na ręce (maks. dwa), tak żeby je później wykorzystać w trakcie dodatkowej tury po remisie? Tak.</p>
+  <p class="rozgrywka bitwa smart">Czy powracający Bio-droid może przerwać rozpoczętą Sekwencję Końcową? Nie.</p>
+  <p class="rozgrywka siec vegas">Kiedy zmienia się stan (sieciowanie, przejęcie itp.) jednostek podczas segmentu inicjatywy, przed czy po zdjęciu żetonów z planszy? Stan utrzymuje się przez cały segment inicjatywy, a zdejmowanie żetonów odbywa się na zakończenie danego segmentu, a nie po nim.</p>
+  <p class="rozgrywka ">Czy zniszczony Sztab może wykonywać ataki oraz wspomagać sojusznicze jednostki do końca Bitwy, w której został zniszczony? Nie, Sztab jak każdą inną jednostkę należy zdjąć na koniec segmentu inicjatywy, w którym został zniszczony.</p>
+  <p class="rozgrywka bitwa tryb-druzynowy">Czy zniszczony Sztab może wykonywać ataki oraz wspomagać sojusznicze jednostki do końca Bitwy, w której został zniszczony? Nie, Sztab jak każdą inną jednostkę należy zdjąć na koniec segmentu inicjatywy, w którym został zniszczony.</p>
+  <p class="ogolne moloch neodzungla uranopolis troglodyci piraci">Czy działania obszarowe żetonów Natychmiastowych zadające Obrażenia (np. Bomba, Mała bomba, Promień, Lawina, Fala) zadają każdemu żetonowi znajdującemu się w ich obszarze działania po odpowiedniej liczbie Obrażeń, czy tylko jednemu żetonowi na każde pole? Jeśli tylko jednemu, to kto wybiera? Tylko jednemu żetonowi, chyba że zadają więcej obrażeń niż jedno, wtedy można dzielić pomiędzy żetony. Wybiera osoba zagrywająca dany żeton Natychmiastowy.</p>
+  <p class="ogolne">Inicjatywa – Czy liczba symboli inicjatywy na jednostkach oznacza liczbę ataków danej jednostki, czy tylko inicjatywy, w których może wykonać atak (jeśli jej nie straci)? Tylko inicjatywy, w których może atakować.</p>
+  <p class="ogolne siec mississipi posterunek piraci sand-runners">Czy jeśli jednostka w 3 inicjatywie, w której posiada atak była zasieciowana i z końcem tej inicjatywy albo później (zależnie od rodzaju modułu) została z niej uwolniona oraz równocześnie albo później (zależnie od rodzaju modułu) jej inicjatywa zostanie obniżona przez Dywersanta albo Strefę, to czy wykona swój atak w obniżonej inicjatywie? Nie.</p>
+  <p class="ogolne mississipi posterunek piraci sand-runners">Czy jednostka podłączona do Strefy posiadająca sama z siebie więcej niż jedną inicjatywę wykona tylko jeden atak w zerze? Czy, skoro nie można obniżyć inicjatywy ataku poniżej zera, to najniższa inicjatywa spada do zera (pozostałe ataki są odpowiednio wyższych inicjatywach (co z jednostkami, które nie mają kolejnych inicjatyw, tylko np. 2 i 0)), a może wykonuje kilka ataków w zerze? Tak, wykona tylko jeden atak w zerze.</p>
+  <p class="ogolne death-breath mississipi posterunek piraci sand-runners">Czy jeśli jednostka z cechą Szarża i co najmniej dwiema własnymi inicjatywami ataku, po udanym ataku wykona szarżę i znajdzie się w zasięgu Strefy, to czy wykona kolejny atak w zerowej inicjatywie (jeśli jakiś jej pozostał), czy skoro już co najmniej raz zaatakowała, to takowy traci? Wykona.</p>
+  <p class="ogolne mississipi posterunek piraci sand-runners">Jeśli mamy jednostkę o inicjatywach 1 i 0, której po wykonaniu ataku w 1 obniżono inicjatywę o 1, to wykona ona atak w 0? Tak.</p>
+  <p class="ogolne mississipi posterunek piraci sand-runners sharash stalowa-policja">Czy jednostka posiadająca dwa swoje ataki w 1 i 0 (Sędzia, Plaga) traci drugi atak po przyłączeniu do niego wrogiego modułu dającego -1 do inicjatywy? Tak, wykona tylko jeden atak.</p>
+  <p class="ogolne moduly posterunek piraci sand-runners">Jeśli jednostka posiadająca inicjatywy 3 i 2 oraz podłączona jest do modułu Matki, po wykonaniu ataków w 3 i 2 inicjatywie znajdzie się pod wpływem Strefy, ale przed wykonaniem ataku w 1, to wykona atak w 0? Tak.</p>
+  <p class="ogolne moduly">Czy dodatkowy atak (Sztab Posterunku, Matka itp.) następuje w kolejnej inicjatywie po zaistnieniu pierwotnego ataku, czy o jeden niższej od obecnego poziomu inicjatywy tego ataku? O jeden niższej od obecnego. Przy czym nie może dać więcej niż jednej dodatkowej inicjatywy ataku na Bitwę.</p>
+  <p class="ogolne moduly">Czy dwie Matki podpięte do jednej jednostki dodają dwie kolejne inicjatywy, czy tylko jedną? Dwie, jeśli jest taka możliwość. W razie utraty jednej z nich traktuje się, że została utracona, ta co działa później.</p>
+  <p class="ogolne moduly">Co z jednostkami posiadającymi swoje ataki nie w kolejnych inicjatywach, tylko np. 2 i 0 czy 3 i 1, czy wtedy dodatkową inicjatywę otrzymuje po swoich inicjatywach, czy też pomiędzy nimi? Co, jeśli do takiej jednostki podłączone są dwa moduły dodające kolejną inicjatywę? Otrzymuje w pierwszej wolnej inicjatywie niższej od swojej najwyższej inicjatywy, drugi otrzymuje w kolejnej wolnej. W przypadku utraty jednego z bonusów traktuje się, że został stracony, ten co działa później. </p>
+  <p class="ogolne doomsday-machine">Nieskończone combo DDM – Czy jeśli wpada atak o sile 1, to w wyniku niego powstaje nieskończenie wiele ataków o sile 1 czy jeden atak o sile nieskończonej? Nieskończenie wiele ataków o sile 1, Pancerz chroni przed każdym z nich.</p>
+  <p class="ogolne doomsday-machine">Czy jednostka może wykonać więcej niż jeden atak z jednej ścianki w jednym segmencie inicjatywy? Skoro nieskończone combo DDM tak działa, a Roztrajacz i jednostki przekierowujące nie wykonują ataku – nie można ich sparaliżować. Nie.</p>
+  <p class="ogolne medyk">Więcej niż jeden atak w jednej inicjatywie z jednej ścianki a Medyk – Czy Medyk może anulować wszystkie ataki, czy tylko jeden z nich? Jest to wiele ataków, a pochłania tylko jeden, ale pochodzą one z jednej ścianki w jednej inicjatywie. Tylko jeden z nich.</p>
+  <p class="ogolne">Czy jednostka z Cechą Strzał snajperski, w razie zwielokrotnienia tego ataku w jednej Inicjatywie, może wybrać cel dla każdego z ataków z osobna? Tak.</p>
+  <p class="ogolne hegemonia">Czy atak jednostki posiadającej zarówno ikonę Strzału, jak i Ciosu na jednej ściance (np. Uniwersalnego żołnierza) jest traktowany jako dwa oddzielne ataki czy jako jeden o dwóch składowych? Jako jeden o dwóch składowych.</p>
+  <p class="ogolne">Czy Wytrzymałość Sztabu może wykraczać poza zakres 0-20, a Obiektu 0-10? Nie.</p>
+  <p class="ogolne dancer">Czy śmierć jednego z Obiektów jest równoznaczna z wynikiem 0 dla Dancera? Tak.</p>
+  <p class="ogolne dancer mississipi">Czy jeśli w pojedynku Missisipi kontra Dancer w jednej Bitwie zginą jeden albo dwa z Obiektów oraz Sztab Missisipi, to czy taki remis jest traktowany jako 0:0 i Missisipi go wygrywa? Tak.</p>
+  <p class="ogolne">Czy można wykonać Obrót a dopiero po nim wykonać Ruch? Zagrywając żeton Ruchu albo korzystając z Mobilności, czy modułu Ruchu wykonujemy: Ruch, Obrót albo jednoczesny Ruch z Obrotem. Nie można obrócić np. Agitatora i przejąć nim i obrócić jednostkę a dopiero potem wykonać Ruch.</p>
+  <p class="ogolne siec">Ruch, Obrót – Czy Obrót jest skokowy, czy ciągły? Np. czy można obrócić sieciarza, którego sieć jest skierowana na inną sieć i się znoszą o więcej niż jedną ściankę, czy od razu po minięciu się sieci zostanie zasieciowana. Skokowo, więc można dowolnie obrócić.</p>
+  <p class="ogolne nowy-jork moduly">Czy jednostka utrzymywana przy życiu przez Moduł (lub Sztab Nowego Jorku) dający wytrzymałość podczas ruchu (Ruch, Odepchnięcie, Roszada) ginie w trakcie ruchu czy dopiero jak przejdzie na nowe pole i zdąży np. zdetonować Minę? Ginie po wejściu na pole, zdąży zdetonować Minę.</p>
+  <p class="ogolne death-breath vegas mephisto">Czy można dokonać zamiany miejsc dwóch jednostek (np. Roszada, Roszada z przeciwnikiem, Zamiana), jeśli jedna z nich na skutek takiej zamiany zostanie zniszczona? Tak.</p>
+  <p cla239Gss="ogolne dancer">Taniec – Czy Dancer może wykonać Taniec, jeśli na początku swojej tury nie posiada żadnego żetonu do odrzucenia? Może to nastąpić w turze pomiędzy Ostatnią Bitwą a Bitwą Dogrywkową. Tak.</p>
+  <p class="ogolne dancer">Taniec – Czy przeprowadzane działania na Obiektach podczas Tańca są uważane za równoczesne, czy jednak można je wykonywać po kolei, wykorzystując zaistniałe zmiany? Są równoczesne. Zaistniałe zmiany należy wprowadzić dopiero po przeprowadzaniu wszystkich działań wynikających z Tańca.</p>
+  <p class="ogolne sharash">Czy można żetonem natychmiastowym Paraliż (Sharrash), sparaliżować żeton podłoża? Nie można.</p>
+  <p class="ogolne uranopolis">Czy Promień (Uranopolis) może niszczyć żetony podłoża? Tak.</p>
+  <p class="ogolne stalowa-policja smart">Czy można wystawić żeton podłoża, kiedy któryś z innych graczy zagrał Terror? Nie można.</p>
+  <p class="ogolne moloch neodzungla uranopolis troglodyci piraci">Czy można za cel działania żetonu natychmiastowego zadającego obrażenia (np. Bomba, Mała bomba, Promień) wybrać Sztab (któremu nie może zadać obrażeń) zamiast żetonu podłoża, na którym stoi? Tak.</p>
+  <p class="ogolne stalowa-policja">Odbicie - Kto wykonuje atak, jednostka rzeczywiście atakująca czy jednostka odbijająca? Dla kogo liczą się obrażenia w grze na punkty? Jednostka wykonująca atak, Odbicie nie jest wykonaniem ataku. Nie otrzymuje się punktów za obrażenia zadane własnemu albo sojuszniczemu Sztabowi.</p>
+  <p class="ogolne stalowa-policja">Co stanie się z atakiem, który utkwi między dwoma Odbiciami? Jego efekt zostaje anulowany. </p>
+  <p class="ogolne stalowa-policja">Skoro Odbicie nie chroni przed odłamkami Klauna, to także nie chroni przed: Mad Bomberem, Pułapką, Toksyczną Bombą, Kwasomiotem, Fanatykiem? Tak.</p>
+  <p class="ogolne stalowa-policja">Odbicie - Czy odłamki np. Klauna, Mad Bombera, Pułapki, Kwasomiotu, Toksycznej Bomby, Fanatyka są atakiem?Nie.</p>
+  <p class="ogolne moloch iron-gang mephisto mississipi medyk">Skoro odłamki (np. Klaun, Kwasomiot, Toksyczna Bomba, Fanatyk, Mad Bomber) nie są atakiem, to czy Medyk chroni przed Obrażeniami zadanymi przez nie? Tak.</p>
+  <p class="ogolne mississipi">Czy odłamki można dopakować jadem z Bojlera? Nie.</p>
+
+  <p class="ogolne moloch iron-gang mephisto mississipi">Odłamki – Czy odłamki powodują eksplozję Pułapki i Mad Bombera? Tak.</p>
+  <p class="ogolne moloch iron-gang mephisto mississipi">Odłamki – Czy odłamki mogą zadawać Obrażenia żetonom Podłoża? Nie.</p>
+  <p class="ogolne moloch iron-gang mephisto mississipi sharash">Paraliż – Czy Klaun, Mad Bomber, Pułapka, Kwasomiot,Fanatyk mogą eksplodować, będąc sparaliżowane? Nie. W przypadku Kwasomiotu Paraliż musi działać na jednostkę, która ma eksplodować, a nie na Inkubator.</p>
+  <p class="ogolne nieturniejowe">Paraliż a Pułapka – Czy np. Pułapka, Mad Bomber mogą eksplodować na skutek ataku z cechą Paraliż, wymierzonego w ściankę z Pułapką? Tak.</p>
+  <p class="ogolne nieturniejowe">Czy Medyk pochłania Obrażenia wywołujące eksplozję Pułapki (Mad Bombera w szczególnych okolicznościach), tym samym zapobiegając eksplozji? Nie.</p>
+  <p class="ogolne stalowa-policja">Odbicie a Pancerz – Czy skoro odbity atak traci zdolności dystansowe, to czy Pancerz przestaje zmniejszać siłę tego ataku? Nie.</p>
+  <p class="ogolne stalowa-policja bestie">Odbicie a Latanie – Czy skoro odbity atak traci zdolności dystansowe, to czy jednostką z Cechą Latanie otrzyma Obrażenia od odbitego ataku dystansowego? Tak.</p>
+  <p class="ogolne stalowa-policja sharash">Odbicie – Czy Paraliż wpływa na zdolność odbijania ataków? Nie.</p>
+  <p class="ogolne stalowa-policja nowy-jork">Odbicie a Shotgun – Jak zachowuje się strzał z Shotguna w kontakcie z Odbiciem? Odbity atak ma siłę równą atakowi, który otrzymać powinna jednostka z Odbiciem.</p>
+  <p class="ogolne stalowa-policja piraci">Odbicie a Działko Wodne – Jak zachowuje się strzał z Działka Wodnego w kontakcie z Odbiciem? Odbity atak ma siłę równą atakowi, który otrzymać powinna jednostka z Odbiciem.</p>
+  <p class="ogolne stalowa-policja">Odbicie a Strzał snajperski – Czy jeśli zostanie wybrana za cel ataku Strzału snajperskiego jednostka stojąca za jednostką z Odbiciem, to czy Odbicie powstrzymuje taki atak? Nie.</p>
+  <p class="ogolne">Strzał snajperski – Czy wybierając cel ataku, można nie wybrać żadnego celu, jeśli jakiś istnieje? Nie.</p>
+  <p class="ogolne stalowa-policja">Czy Egzekutor może dokonać egzekucji na polu, na którym będzie sparaliżowany, sieciowany lub przejęty? Tak.</p>
+  <p class="ogolne stalowa-policja">Czy Medyk może przyjąć obrażenie dla sztabu Stalowej policji za użycie zdolności Egzekutora? Nie.</p>
+  <p class="ogolne nowy-jork gildia-kupcow">Cecha Szpieg – Czy zasieciowana jednostka z cechą Szpieg nadal korzysta z cudzych modułów? Nie korzysta.</p>
+  <p class="ogolne nowy-jork gildia-kupcow">Cecha Szpieg – Czy jednostka z cechą Szpieg musi stykać się z modułem działającym na całej planszy, aby korzystać z jego zdolności, a może w ogóle nie może z takich korzystać? Musi się stykać.</p>
+  <p class="ogolne nowy-jork gildia-kupcow">Czy jednostka z cechą Szpieg musi stykać się z modułem dalekiego zasięgu, czy wystarczy, że będzie w jego zasięgu? Musi się stykać.</p>
+  <p class="ogolne nowy-jork gildia-kupcow">Czy Szpieg może korzystać ze zdolności Bojlera? Tak, ale nadal musi mieć znaczniki Jadu w swojej puli, aby skorzystać.</p>
+  <p class="ogolne nowy-jork gildia-kupcow">Czy Szpieg może korzystać ze zdolności Śmietniska? Tak, ale nadal musi mieć znaczniki Paraliżu w swojej puli, aby skorzystać.</p>
+  <p class="ogolne nowy-jork gildia-kupcow vegas">Jak działa cecha Szpieg w przypadku negatywnych (karzących przeciwników) modułów (z rozróżnieniem, jeśli jest istotne na Agitatora i inne)? Działają one czy nie działają one na taką jednostkę? Cecha Szpieg nie ma z nimi nic wspólnego, ona pozwala korzystać tylko z tych dających bonusy.</p>
+  <p class="ogolne posterunek nowy-jork gildia-kupcow">Szpieg a Skoper – Czy cecha Szpiega działa na zeskoperoowany własny bądź sojuszniczy moduł? Skoro nie jest wrogi, ale działa jakby był. Nie.</p>
+  <p class="ogolne posterunek">Skoper – Jak działa Skoper? Przekazuje bonus swojej jednostce podpiętej do Skopera, umożliwia podpięcie się pod zeskoperowany Moduł, czy też daje skradziony bonus wszystkim jednostkom na planszy? Zeskoperowany Moduł odwraca swoje działanie, daje pozytywne cechy jednostkom właściciela Skopera oraz jego sojusznikom, a negatywne jego przeciwnikom, natomiast zasięg oddziaływania takiego Modułu nie zostaje zmieniony.</p>
+  <p class="ogolne posterunek">Czy Skoper oddziałuje na moduły negatywne (każące przeciwników)? Tak, moduły negatywne zaczynają oddziaływać na przeciwników właściciela Skopera.</p>
+  <p class="ogolne posterunek">Czy Skoper pozbawia Moduły cech ruchowych (Ruchu, Obrotu, Odepchnięcia), skoro w „normalny” sposób pozbawia cechy Podziemny? Nie.</p>
+  <p class="ogolne posterunek">Czy Skoper pozbawia moduły cechy wytrzymałość, skoro w „normalny” sposób pozbawia cechy Podziemny? Nie.</p>
+  <p class="ogolne posterunek">Czy zeskoperowane Pnącze oddziałuje na całą Macierz? Tak.</p>
+  <p class="ogolne neodzungla siec">Macierz a Sieć – Czy jeśli moduł Neodżungli podłączony jest do zasieciowanej jednostki będącej częścią Macierzy, to czy oddziałuje on na całą Macierz? Tak.</p>
+  <p class="ogolne medyk">Czy w jednej inicjatywie Medyk może uratować dwie jednostki, jeśli sam jest podpięty do innego Medyka? Tak.</p>
+  <p class="ogolne medyk">Czy Medyk może uratować jednostkę, jeśli równocześnie sam jest ratowany, przed zniszczeniem, przez innego Medyka? Tak.</p>
+  <p class="ogolne medyk"> Czy Medyk może uratować jednostkę, jeśli równocześnie otrzymuje obrażenia niepowodujące jego zniszczenia? Tak.</p>
+  <p class="rozgrywka sharash"> Podziemna roszada – Jak należy rozumieć zapis: „o ile sąsiadowała ona ze Sztabem”, znajdujący się w opisie Podziemnej roszady? Kiedykolwiek podczas rozgrywki czy może podczas danej tury? Podziemną roszadę można wykonać z daną jednostką (z cechą Podziemny), jeśli ona aktualnie styka się ze Sztabem Sharrash</p>.
+  <p class="ogolne moduly">Czy jednostka podłączona do dwóch Modułów dających Mobilność może wykonać ruch o dwa pola, jeśli po pierwszym ruchu straci kontakt z oboma Modułami? Nie.</p>
+  <p class="rozgrywka posterunek"> Centrum Rozpoznania – Czy jednostka wykonująca podwójny (albo większy) ruch otrzymany jako całość, wykorzystując dodatkowo Centrum Rozpoznania, otrzymuje jeden dodatkowy Ruch, czy jeden za każdy standardowy, który posiadała? Jeden za każdy, który ma</p>.
+  <p class="rozgrywka posterunek iron-gang troglodyci"> Centrum Rozpoznania, Podwójny ruch, Podwójna mobilność – Czy jednostka wykonująca podwójny (albo większy) Ruch otrzymany jako całość (np. Centrum Rozpoznania, Podwójny ruch, Podwójna mobilność) może go wykonać, jeśli nie ma możliwości przemieścić się zgodnie z zasadami pole po polu pomiędzy startowym a docelowym polem (np. na co najmniej jednym z pól będzie: brak wolnego pola, znajdowała się Mina, sieciowana, Przejęta, bez zasilania, bez dodatkowej Wytrzymałości wymaganej do pozostawania na planszy)? Nie. Należy jednak pamiętać o wyjątkach dla różnych rodzajów jednostek oraz działaniu zdolności biernych przemieszczanej jednostki np. Sieci czy modułów i cech modułowych</p>.
+  <p class="rozgrywka posterunek iron-gang troglodyci"> Centrum Rozpoznania, Podwójny ruch, Podwójna mobilność – Czy jednostka wykonująca podwójny (albo większy) Ruch otrzymany jako całość (np. Centrum Rozpoznania, Podwójny ruch, Podwójna mobilność) może wrócić na pole, z którego rozpoczęła ów ruch? Tak</p>.
+  <p class="rozgrywka posterunek iron-gang troglodyci"> Centrum Rozpoznania, Podwójny ruch, Podwójna mobilność – Czy poruszając się o więcej niż jedno pole, z jednego źródła ruchu, można wykonać więcej niż jeden Obrót? Tak, jeden Obrót przysługuje nam za każdy punkt Ruchu</p>.
+  <p class="rozgrywka posterunek iron-gang troglodyci vegas"> Czy jednostka wykonująca podwójny (albo większy) Ruch otrzymany jako całość (np. Centrum Rozpoznania, Podwójny ruch, Podwójna mobilność) może po wykonaniu części przysługującej jej Ruchów wykonać akcję, a następnie dalej się poruszać, jak czyni to Nocny Łowca? W szczególności czy Agitator może przejąć jednostkę podczas takiego ruchu, a sieciarz zasieciować? W takiej sytuacji (jeśli chce wykonać dalszy Ruch) jednostka wykonuje jedynie działania automatyczne, niewymagające podjęcia decyzji od gracza (np. działanie Modułu, cechy Modułu, sieciowanie, czy Przejęcie (choć w tym przypadku nie może dokonać Obrotu przejętą jednostką))</p>.
+  <p class="rozgrywka posterunek iron-gang troglodyci">Centrum Rozpoznania, Podwójny ruch, Podwójna mobilność – Czy jednostka wykonująca podwójny (albo większy) Ruch otrzymany jako całość (np. Centrum Rozpoznania, Podwójny ruch, Podwójna mobilność)może go wykonać, jeśli nie ma możliwości przemieścić się zgodnie z zasadami pole po polu pomiędzy startowym a docelowym polem (np. na co najmniej jednym z pól będzie:brak wolnego pola, znajdowała się Mina, sieciowana, Przejęta, bez zasilania, bez dodatkowej Wytrzymałości wymaganej dopozostawania na planszy)? Nie. Należy jednak pamiętać o wyjątkach dla różnych rodzajów jednostek oraz działaniu zdolności biernych przemieszczanej jednostki np. Sieci czy modułów i cech modułowych.</p>
+  <p class="rozgrywka posterunek iron-gang troglodyci">Centrum Rozpoznania, Podwójny ruch, Podwójnamobilność – Czy jednostka wykonująca podwójny (albo większy) Ruch otrzymany jako całość (np. Centrum Rozpoznania, Podwójny ruch, Podwójna mobilność) może wrócić na pole, z którego rozpoczęła ów ruch? Tak.</p>
+  <p class="rozgrywka posterunek iron-gang troglodyci">Centrum Rozpoznania, Podwójny ruch, Podwójna mobilność – Czy poruszając się o więcej niż jedno pole, z jednego źródła ruchu, można wykonać więcej niż jeden Obrót? Tak, jeden Obrót przysługuje nam za każdy punkt Ruchu.</p>
+  <p class="rozgrywka posterunek iron-gang troglodyci">Czy jednostka wykonująca podwójny (albo większy) Ruch otrzymany jako całość (np. Centrum Rozpoznania, Podwójny ruch, Podwójna mobilność) może po wykonaniu części przysługującej jej Ruchów wykonać akcję, a następnie dalej się poruszać, jak czyni to Nocny Łowca? W szczególności czy Agitator może przejąć jednostkę podczas takiego ruchu, a sieciarz zasieciować? W takiej sytuacji (jeśli chce wykonać dalszy Ruch) jednostka wykonuje jedynie działania automatyczne, niewymagające podjęcia decyzji od gracza (np. działanie Modułu, cechy Modułu, sieciowanie, czy Przejęcie (choć w tym przypadku nie może dokonać Obrotu przejętą jednostką)).</p>
+  <p class="rozgrywka posterunek iron-gang troglodyci">Centrum Rozpoznania, Podwójny ruch, Podwójna mobilność a Uwolnienie – Czy jednostka wykonująca podwójny (albo większy) Ruch otrzymany jako całość (np. Centrum Rozpoznania, Podwójny ruch, Podwójna mobilność) może po wykonaniu części przysługującej jej Ruchów wykonać Uwolnienie i poruszać się dalej? Tak.</p>
+  <p class="rozgrywka sharash">Czy Sztab Sharrash może podczas ruchu o dwa pola zacząć albo pomiędzy nimi zrobić Podziemną roszadę? Nie.</p>
+  <p class="rozgrywka mississipi neodzungla posterunek vegas">Znaczniki jadu – Skoro pozostałe armie poza Missisipi i Neodżunglą posiadają zerowy limit znaczników jadu, to czy mogą po przejęciu/zeskoperowaniu jednostki jednej z tych dwóch armii kłaść znaczniki jadu? I czy może jest różnica, bo zeskoperowany Bojler jest nadal Missisipi a przejęta przez Agitatora jednostka już nie?. Nie. Nie ma różnicy.</p>
+  <p class="rozgrywka sharash vegas">Znaczniki paraliżu – Co z armiami, które nie mają swoich znaczników, a przejmą lub zeskoperują moduły dające taką możliwość albo przejmą wojownika z taką zdolnością, to czy mogą korzystać ze znaczników Paraliżu? Czy jest różnica, czy zostały przejęte, czy zeskoperowane? Nie.</p>
+  <p class="rozgrywka neodzungla stalowa-policja">Stalowa sieć – Czy Stalowa sieć może sieciować żetony podłoża? Nie.</p>
+  <p class="rozgrywka stalowa-policja vegas">Stalowa sieć – Co dzieje się ze znacznikiem Stalowej sieci, gdy wraca do nas jednostka po przejęciu, która została wcześniej przez nas zasieciowana? Znacznik Stalowej sieci jest zdejmowany.</p>
+  <p class="rozgrywka iron-gang vegas">Sieć dystansowa – Co dzieje się ze znacznikiem Sieci dystansowej, gdy wraca do nas jednostka po przejęciu, która została wcześniej przez nas zasieciowana? Znacznik Sieci dystansowej jest zdejmowany.</p>
+  <p class="rozgrywka death-breath vegas">Macki – Co dzieje się za znacznikiem Macek (do naszej tury, bo wtedy możemy go przełożyć), gdy wraca do nas jednostka po przejęciu, która została wcześniej przez nas zasieciowana? Znacznik Macek jest zdejmowany.</p>
+  <p class="rozgrywka mississipi neodzungla vegas">Znaczniki jadu – Co dzieje się ze znacznikami jadu, gdy wraca do nas jednostka po przejęciu, która została wcześniej przez nas zatruta? Nic. Jednostka dalej jest zatruta.</p>
+  <p class="rozgrywka death-breath mephisto">Macki – Czy Macki również pozostają na jednostce, na której leżały wcześniej, jeśli jedyny mackarz, który kieruje na nią swoje Macki, nie mógłby ich samodzielnie rzucić? Jego Macki skierowane są na aktywną sieć sieciarza. Tak, chyba że dana jednostka nie podlega sieciowaniu (np. Sztab Mephisto) wtedy nie.</p>
+  <p class="rozgrywka death-breath">Macki – Co dzieje się ze znacznikiem Macek, leżącym na jednostce, po tym, gdy wszystkie kierujące na nią swoje macki jednostki mackujące zostały zasieciowane? Znacznik jest zdejmowany.</p>
+  <p class="rozgrywka death-breath dancer">Macki – Czy Macki spadają z Obiektu podczas tańca, jeśli dany Obiekt tańczył, czy jakikolwiek z Obiektów wykonał taniec? Tylko jeśli dany Obiekt tańczył.</p>
+  <p class="rozgrywka death-breath dancer stalowa-policja">Macki – Czy Macki spadają po zagraniu żetonu Ruchu na Obiekt? Tak, zarówno w przypadku poruszenia na inne pole, jak i tylko Obrotu (w tym o 360 stopni), jest tu analogicznie, jak w przypadku Stalowej sieci.</p>
+  <p class="rozgrywka death-breath sharash">Macki – Czy Macki może rzucić sparaliżowana jednostka? Tak.</p>
+  <p class="rozgrywka death-breath">Macki – Czy można zdjąć dobrowolnie znacznik Macek z jednostki przeciwnika, nie przekładając go na inną? Nie.</p>
+  <p class="rozgrywka death-breath">Macki – Czy można obrócić lub poruszyć jednostkę mackującą inną jednostkę? Tak, wtedy znacznik Macek zostaje zdjęty z obecnie mackowanej jednostki, jeśli był to jedyny mackarz kierujący na nią swoje macki.</p>
+  <p class="rozgrywka death-breath">Macki – Co dzieje się ze znacznikiem Macek, po Odepchnięciu aktywnego mackarza, w taki sposób, że jego Macki wskazują inna wrogą jednostkę, zostaje zdjęty, czy przełożony na drugą jednostkę? Znacznik Macek zostaje zdjęty.</p>
+  <p class="rozgrywka death-breath">Macki – Czy Macki działają automatycznie, gdy tylko jeden kierunek ich działania jest możliwy? Nie. Macki, aby działać, muszą mieć wyznaczony cel, do którego zmiany lub wskazania nowego jest potrzeba podjęcia decyzji przez gracza.</p>
+  <p class="rozgrywka vegas">Przejęcie Kontroli a Sieć – Agitator/Sztab Vegas (pole A) przejął sieciarza (pole B) skierowanego na pole C sąsiadujące z Agitatorem/sztabem Vegas. Przeciwnik postawił na polu C sieciarza skierowanego na pole A. (Przy założeniu, że sieciarze są ze sobą sprzymierzeni (z jednej frakcji lub sojuszu)) Kto kogo będzie sieciował w takiej sytuacji? Sieciarz zasieciuje Agitatora/Sztab Vegas.</p>
+  <p class="rozgrywka mississipi">Sieciarz kieruje swoją sieć na źródło dodatkowej Wytrzymałości, która utrzymuje na planszy innego Sieciarza, który kieruje swą sieć na pierwszego. Kto kogo będzie sieciował w takiej sytuacji? Pierwszy Sieciarz zasieciuje źródło Wytrzymałości, co spowoduje usunięcie z planszy drugiego Sieciarza.</p>
+  <p class="rozgrywka mississipi">Co w przypadku kiedy co najmniej dwóch Sieciarzy (tworząc zamkniętą pętlę) kieruje swoje Sieci na źródło dodatkowej Wytrzymałości (która utrzymuje na planszy) kolejnego Sieciarza z danej pętli? Wszyscy Sieciarze zasieciują źródła dodatkowej Wytrzymałości i tym samym wszyscy zostaną usunięci z planszy.</p>
+  <p class="rozgrywka mephisto">Sieciarz kieruje swoją sieć na moduł Paszczy, przy czym sam stoi obok ścianki, która otrzymuje właśnie atak, dodatkowo jest aktywny Inkubator ze znacznikiem Sieci. Kto kogo będzie sieciował w takiej sytuacji? Sieciarz zasieciuje moduł Paszczy.</p>
+  <p class="rozgrywka mephisto">Sieciarz kieruje swoją sieć na Inkubator ze znacznikiem Sieci, przy czym sam stoi obok ścianki sztabu Mephisto, która posiada atak. Kto kogo będzie sieciował w takiej sytuacji? Sieciarz zasieciuje Inkubator.</p>
+  <p class="rozgrywka mephisto">Sieciarz kieruje swoją sieć na Wszczep Kolca, którego znacznik na nim leży oraz aktywny jest Inkubator z Siecią. Kto kogo będzie sieciował w takiej sytuacji? Sieciarz zasieciuje Wszczep Kolca i jego znacznik zostanie zdjęty.</p>
+  <p class="rozgrywka uranopolis mississipi mephisto">Co w przypadku kiedy co najmniej dwóch Sieciarzy (tworząc zamkniętą pętlę) kieruje swoje Sieci na źródło pozwalające sieciować (np. Zasilanie, wszczep Inkubatora ze znacznikiem Sieci, wszczep Kolca (jeśli na Inkubatorze leży znacznik Sieci), moduł dodający zdolność Sieci (np. Paszcza)) kolejnemu Sieciarzowi z danej pętli? Żadne ze źródeł (pozwalających sieciować) z tej pętli nie będzie zasieciowane, natomiast Sieci tych sieciarzy skierowane w innych kierunkach działają normalnie.</p>
+  <p class="rozgrywka uranopolis vegas">Przejęcie Kontroli a Zasilanie – Czy któraś z jednostek będzie zasieciowana w następujących przykładach: Dwa sztaby Uranopolis i Vegas stoją koło siebie, a po obu stronach sąsiadująco do obu stoją elektrosieciarze, z których każdy kieruje sieć na inny sztab, a na tego kierującego na sztab Uranopolis jest skierowane przejęcie. ALBO Dwóch elektrosieciarzy stoi koło siebie, po obu stronach sąsiadująco do obu stoją sztaby Uranopolis i Vegas, sieciarze kierują swoje sieci na sztaby w taki sposób, aby na każdy ze sztabów była skierowana, chociażby jedna sieć oraz każdy z sieciarzy kieruje sieć na co najmniej jeden ze sztabów, a przejęcie jest skierowane na sieciarza, który na sieć skierowaną na sztab Uranopolis. w obu przykładach można zastąpić sztaby Agitatorem i jednostką ze zdolnością zasilania. Żadna z tych jednostek nie będzie zasieciowana.</p>
+  <p class="rozgrywka vegas troglodyci">Przejęcie Kontroli a Zamrożenie – Co się stanie, jeśli Agitator (pole A) kieruje Przejęcie Kontroli na Sieciarza (pole B), on natomiast kieruje Sieć na pole C, na którym znajduje się jednostka z cechą Modułu Zamrożenie, która jest skierowana na pole A – przy założeniu, że jednostka z Zamrożeniem i Sieciarz są sojusznikami? Agitator zostanie Zamrożony.</p>
+  <p class="rozgrywka vegas posterunek">Agitator a Agitator + Skoper – Co dzieje się, gdy na jedną jednostkę skierowani są dwaj Agitatorzy w tym jeden zeskoperowany? A co jeśli trzech w tym jeden zeskoperowany? Dwie kontrole skierowane na tę samą jednostkę znoszą się wzajemnie (jednostka nie jest w tym przypadku kontrolowana przez żadnego Agitatora). W tym przypadku nie dokonuje się Obrotu. Oczywiście, w przypadku trzech Agitatorów skierowanych na tę samą jednostkę dwie kontrole się zniosą, trzecia zadziała.</p>
+  <p class="rozgrywka vegas">Przejęcie Kontroli a Sieć – Jak wygląda możliwość obrócenia przejmowanej jednostki, jeśli w momencie przejmowania zmienia się jej stan zasieciowania, a w instrukcji jest napisane, że Obrotu można dokonać „w momencie przejmowania”? W celu ustalenia stanu zasieciowania i wykonania ewentualnego Obrotu decyduje już nowa własność po Przejęciu Kontroli. W przypadku kiedy Przejęcie Kontroli nastąpiło podczas Bitwy, to decyduje moment wykonywania Obrotu (przy czym efekty wszystkich Obrotów są uznawane za równoczesne).</p>
+  <p class="rozgrywka vegas">Przejęcie Kontroli a Sieć – Czy w jakimkolwiek przypadku sieciarz może zasieciować jednostkę z aktywnym Przejęciem Kontroli skierowanym na niego? Nie. W tym w następujących szczególnych przypadkach: zniesienia Przejęcia Kontroli w przypadku dwóch wrogich Agitatorów kierujących przejęcia na danego sieciarza; przewagi w Przejęciach Kontroli jednej ze stron (dalej sieciarz nie może zasieciować słabszej strony); Przejęcia sieciarza przez zeskoperowanego Agitatora (ten wciąż jest wrogi wobec sieciarza). Należy pamiętać o tym, że jeśli sieciarz kieruje sieć na trzecią jednostkę pozwalającą Przejąć nad nim kontrolę jednostce z Przejęciem Kontroli, to dana jednostka nie będzie mogła Przejąć nad nim kontroli i w szczególnym przypadku większej liczny kierunków sieci będzie mógł ją zasieciować.</p>
+  <p class="rozgrywka vegas">Przejęcie Kontroli a (?) – Czy po Przejęciu kontroli nad jednostką posiadającą cechę (?) można skorzystać z tej cechy, czy tylko oryginalny właściciel ma do tego prawo? Z cechy (?) może korzystać tylko obecny właściciel jednostki.</p>
+  <p class="rozgrywka uranopolis">Zasilanie – Czy można odpychać jednostki Uranoplis pozbawione Zasilania? Czy należy je traktować pod każdym względem jak zasieciowane? Nie można. Należy traktować je jakby były zasieciowane.</p>
+  <p class="rozgrywka uranopolis">Zasilanie – Czy zdolność Zasilania Mechanika jest traktowana jako Cecha Modułowa? Nie.</p>
+  <p class="rozgrywka smart">Bio-droid a Sieć – Jeśli Bio-droid został zniszczony w czasie kiedy był zasieciowany, to czy wróci na wierzch stosu dobierania? Tak.</p>
+  <p class="rozgrywka sharash neodzungla">Ładunek wybuchowy – Czy Ładunek wybuchowy może niszczyć żetony podłoża? Nie.</p>
+  <p class="rozgrywka sharash">Ładunek wybuchowy – Czy Ładunek wybuchowy jest atakiem? Tak.</p>
+  <p class="rozgrywka sharash">Ładunek wybuchowy – Jeśli Ładunek wybuchowy jest atakiem, to czy można jego atak dopakować Bojlerem lub Śmietniskiem? Tak.</p>
+  <p class="rozgrywka neodzungla doomsday-machine mississipi">Zatrucie – Czy powoduje detonację: Pułapki, Mad Bombera? I czy ma na to wpływ limit znaczników Jadu, jeśli nie mam wolnego znacznika Jadu, to czy był atak, czy nie? Nie. Nie.</p>
+  <p class="rozgrywka vegas">Sztab Vegas atakuje w 5 czy 6 kierunkach? Skoro Paszcza nie daje mu efektu (dodania w brakującego kierunku ataku) oraz w przypadku Mephista jest informacja, iż atakuje jedynie w 3 kierunkach, czego nie ma w przypadku Vegas. Pięciu, nie atakuje ścianką z przejęciem.</p>
+  <p class="rozgrywka vegas">Czy jeśli jednostka poprzez Odepchnięcie zmienia Agitatorów, to może zostać powtórnie obrócona? Tak.</p>
+  <p class="rozgrywka vegas">Czy jeśli poprzez Roszadę zamieni się miejscami Agitatorów, tak że przejmują nawzajem te same jednostki, które były przejęte przez nich wcześniej, to czy można obrócić ponownie przejęte jednostki? Tak.</p>
+  <p class="rozgrywka vegas">Czy jeśli poprzez Roszadę zamieni się miejscami przejęte jednostki, to czy można obrócić ponownie przejęte jednostki? Tak.</p>
+  <p class="rozgrywka vegas">Czy jeśli zostanie obrócony Agitator o 360 stopni (np. poprzez moduł), to czy można obrócić powtórnie przejętą jednostkę. Nie.</p>
+  <p class="rozgrywka vegas dancer">Uwolnienie – Jeśli na przejęty Obiekt skierowany jest sieciarz Vegas, to ile Obrażeń otrzymuje Obiekt w razie wykonania Tańca albo ruchu? Jedno (za Przejęcie Kontroli), bo swoich jednostek sieciarz nie sieciuje.</p>
+  <p class="rozgrywka vegas dancer">Uwolnienie – Jeśli na przejęty Obiekt skierowana jest drugi Agitator, to ile ran otrzymuje Obiekt w razie wykonania tańca albo ruchu? 1 (za Przejęcie Kontroli), bo swoich jednostek Agitator nie przejmuje.</p>
+  <p class="rozgrywka dancer death-breath">Uwolnienie – Czy można uwolnić się z sieci Dancer albo Obiekt spod sieci/Macek poprzez zagranie żetonu Odepchnięcie? Nie.</p>
+  <p class="rozgrywka dancer death-breath">Uwolnienie – Czy można uwolnić się z sieci Dancer poprzez zagranie Roszady z przeciwnikiem? Tak. Przy czym należy pamiętać, że zasieciowanych jednostek nie można poruszać, z wyjątkiem przypadków wprost wskazanych w instrukcjach.</p>
+  <p class="rozgrywka">Uwolnienie a Polowanie – Czy można uwolnić się z sieci Dancer poprzez zagranie Polowania? Tak, w tym celu należy wykorzystać składową Ruchu, a następnie można wykonać Atak, jeśli jednostka nie jest sieciowana.</p>
+  <p class="rozgrywka dancer">Uwolnienie – Czy można uwolnić się z sieci Dancer poprzez użycie zdolności sztabu np. Odepchnięcie? Nie.</p>
+  <p class="rozgrywka dancer">Uwolnienie – Czy można uwolnić się z sieci Dancer poprzez użycie zdolności Sztabu np. Obrót, Ruch w celu poruszenia własnej jednostki, aby sieciowała Żółty Obiekt? Nie.</p>
+  <p class="rozgrywka dancer sharash">Uwolnienie – Czy można uwolnić się z sieci Dancer poprzez wykorzystanie Podziemnej roszady? Nie.</p>
+  <p class="rozgrywka dancer">Uwolnienie – Czy można uwolnić się z sieci Dancer albo Obiekt z sieci poprzez wykorzystanie Modułu ruchu? Nie.</p>
+  <p class="rozgrywka dancer">Uwolnienie – Czy Obiekt żółty może uwolnić się poprzez dokonanie obrotu po zagraniu żetonu Ruchu w taki sposób, aby kierować swoją sieć na sieciarza, który go sieciuje? Tak.</p>
+  <p class="rozgrywka dancer">Uwolnienie – Czy można obrócić Obiekt przy pomocy żetonu Ruchu, kiedy jest zasieciowany, skoro można tego dokonać przy pomocy Tańca? Tak.</p>
+  <p class="rozgrywka dancer mississipi">Uwolnienie – Czy można zagrać na przeciwnika Odepchnięcie, Przyciągnięcie, Zasłonę dymną albo Roszadę z przeciwnikiem, kiedy jest pod siecią Dancer albo na Obiekt, który jest sieciowany? Nie.</p>
+  <p class="rozgrywka dancer mephisto">Uwolnienie – Jeśli na aktywnym Inkubatorze jest aktywowana Sieć, to ile Obrażeń otrzyma Obiekt podczas Uwolnienia, jeśli znajdują się na nim dwa Kolce albo co najmniej jeden Kolec i sąsiaduje ze ścianką Sztabu Mephisto z aktywnym atakiem? Jedno, bo Kolce są traktowane jako atak Sztabu.</p>
+  <p class="rozgrywka dancer death-breath">Uwolnienie – Jeśli na zamoackowany Obiekt kieruje swoje Macki więcej niż jedna jednostka, to ile Obrażeń otrzyma taki Obiekt podczas Uwolnienia? Jedno, bo tylko jedne Macki mogą być aktywne.</p>
+  <p class="rozgrywka dancer">Uwolnienie a Medyk – W którym momencie jest zdejmowany Medyk, który pochłonął Obrażenie spowodowane Uwolnieniem, przed czy po wykonaniu przemieszczenia uwalnianego Sztabu? Po.</p>
+  <p class="rozgrywka dancer vegas">Uwolnienie a Roszada z Medykiem – Czy można równocześnie wykorzystać Medyka do wykonania z nim Roszady w celu Uwolnienia oraz pochłonięcia Obrażenia wynikającego z niego, jeśli Sztab był w zasięgu jego działania przed Uwolnieniem? Tak.</p>
+  <p class="rozgrywka dancer mephisto">Jak działa sieć Obiektu Żółtego na sztab Mephisto? Czy uciekając spod niej, otrzymuje Obrażenia? Każda Sieć na sztab Mephisto działa tak samo – jedynym jej działaniem jest obniżenie Inicjatywy sztabowi o jeden. Zatem zasady Uwolnienia nie dotyczą tego przypadku.</p>
+  <p class="rozgrywka">Przejęcie Kontroli a zapełnienie planszy – Jeśli jednostka zapełniająca planszę jest kładziona na polu, na którym jest przejmowana, to czy na zakończenie Bitwy jest ona obracana, zgodnie z wolą właściciela Agitatora, zgodnie z zasadą, że jeśli Przejęcie nastąpi w czasie Bitwy, to na jej koniec można obrócić? Analogicznie, jeśli to Agitator zapełni planszę i ścianką z przejęciem będzie zwrócony na jednostkę, którą może przejąć, to obróci ją na koniec Bitwy? Tak.</p>
+  <p class="rozgrywka vegas">Przejęcie Kontroli a Obiekt – Co się dzieje, gdy ginie przejęty Obiekt? Przegrywa gracz grający Dancerem.</p>
+  <p class="rozgrywka vegas">Przejęcie Kontroli a Obiekt – Czy na przejęty Obiekt oddziałują Moduły gracza, który go przejął? Tak, jak na każdą inną jego jednostkę.</p>
+  <p class="rozgrywka vegas death-breath">Ożywianie a Przejęcie – Co następuje najpierw Ożywianie jednostek czy obrócenie jednostek Przejętych podczas Bitwy, bo w obu przypadkach jest napisane „natychmiast po zakończeniu bitwy”? Co z nowo dostawianymi jednostkami (na polach, na których są przejmowane), bo one pojawiły się już po Bitwie? Najpierw Vegas ma możliwość obrócić przejęte jednostki podczas Bitwy, potem Death Breath dostawia jednostki, następnie, jeśli dostawienie jednostek nie wywołało kolejnej Bitwy, Vegas może obrócić przejęte właśnie jednostki.</p>
+  <p class="rozgrywka smart stalowa-policja death-breath">Terror a Ożywianie – Czy zagrany Terror blokuje możliwość wystawiania jednostek z cechy Sztabu Ożywianie? Nie.</p>
+  <p class="rozgrywka death-breath">Ożywianie – Czy wykładanie znaczników ran na pola zabitych przez Death Breath przeciwników jest zdolnością Sztabu, czy cechą armii? Czy jeśli sztab Death Breath jest zasieciowany, to czy wykłada się znaczniki ran na polach, na których jednostki Death Breath zabiły przeciwnika? Jest to cecha sztabu. Nie wykłada się.</p>
+  <p class="rozgrywka death-breath">Ożywianie – Co dzieje się z już wyłożonymi znacznikami ran na polach, jeśli sztab Death Breath zostanie zasieciowany? Pozostają na planszy do końca Bitwy i jeśli sztab Death Breath zostanie odsieciowany do czasu przywracania jednostek, to może je wykorzystać.</p>
+  <p class="rozgrywka death-breath neodzungla">Ożywianie – Czy można Ożywić na polu, na którym znajduje się żeton Podłoża? Tak.</p>
+  <p class="rozgrywka death-breath sharash">Powrót – Czy można wystawić jednostkę na polu, na którym znajduje się żeton Podłoża za pomocą żetonu Powrót? Tak.</p>
+  <p class="rozgrywka death-breath">Powrót – Czy można zagrać żeton Powrót, jeśli sztab Death Breath jest zasieciowany? Tak.</p>
+  <p class="rozgrywka death-breath stalowa-policja">Odbicie a Ożywianie – Czy gdy jednostka Death Breath zabije siebie samą (albo sojuszniczą) poprzez Odbicie, to kładziemy na jej miejsce znacznik rany? Tak.</p>
+  <p class="rozgrywka death-breath">Ożywianie – Czy jeśli tylko cześć śmiertelnych ran zada jednostką Death Breath, to kładziemy znacznik rany na polu? Tak, ale przynajmniej jedno obrażenie musi być zadane przez Death Breath w inicjatywie śmierci jednostki.</p>
+  <p class="rozgrywka death-breath">Wchłanianie – Czy jeśli tylko cześć śmiertelnych ran zada jednostką z cechą Wchłanianie (Pożarcie (Death Breath)), to czy zostanie przywrócony punkt Wytrzymałości Sztabu? Tak, ale przynajmniej jedno obrażenie musi być zadane przez jednostkę z cechą Wchłanianie (Pożarcie (Death Breath)) w inicjatywie śmierci jednostki.</p>
+  <p class="rozgrywka death-breath">Ożywianie a Atak dystansowy Death Breath – Czy po zabiciu jednostki przeciwnika takim atakiem jest kładziony znacznik rany? Tak.</p>
+  <p class="rozgrywka death-breath">Atak dystansowy Death Breath + Wchłanianie (Pożarcie (Death Breath)) – Czy jednostka zabita z takiego ataku może zostać Wchłonięta (Pożarta)? Tak.</p>
+  <p class="rozgrywka death-breath">Wchłanianie – Co przyznajemy najpierw dodatnie punkty Wytrzymałości Sztabu ze Wchłaniania czy ujemne za obrażenia? Na koniec danego segmentu inicjatywy przyznajmy różnice w odzyskanych i utraconych punktach Wytrzymałości.</p>
+  <p class="rozgrywka death-breath">Wchłanianie – Czy jeśli Wchłoniecie nastąpiło w późniejszym segmencie Inicjatywy niż zniszczenie Sztabu, to czy przywróci ono Sztab do gry? Nie.</p>
+  <p class="rozgrywka mephisto stalowa-policja">Odbicie – Czy Mephisto sam się rani poprzez Odbicie? Tak.</p>
+  <p class="rozgrywka mephisto partyzanci">Świder (Mephisto Partyzanci) – Czy przenoszona jednostka może się Obrócić, jeśli tak to czy robi to przed przeniesieniem, po przeniesieniu, czy może w jego trakcie? Nie.</p>
+  <p class="rozgrywka mephisto partyzanci">Świder (Mephisto, Partyzanci) – Czy można wykorzystać działanie Świdra tylko do Obrócenia jednostki, bez przenoszenia jej na inne pole? Nie.</p>
+  <p class="rozgrywka mephisto">Czy Mephisto może użyć Szczęk (wywołać Bitwę) po tym, jak który którykolwiek gracz dobrał ostatni żeton? Nie.</p>
+  <p class="rozgrywka mephisto">Kolec – Czy jeśli jednostka z Kolcem jest atakowana również bezpośrednio przez Sztab Mephisto, to czy można wybrać, aby otrzymała zamiast normalnego ataku ze ścianki, atak z Kolca? Nie, pierwszeństwo ma zwykły atak Sztabu, dotyczy to również Sieci (jednostka jest sieciowana raz z odpowiedniej ścianki Sztabu).</p>
+  <p class="rozgrywka mephisto">Kolec – Czy na jednej jednostce można położyć dwa znaczniki Kolców? Tak, ale pomimo tego taka jednostka otrzyma tylko raz Obrażenia i ewentualnie będzie pod wpływem jednej Sieci.</p>
+  <p class="rozgrywka mephisto">Kolec – Czy znacznik Kolca spada z jednostki na koniec Bitwy, jeśli Mephisto nie wykona podczas tej Bitwy ataku? Tak.</p>
+  <p class="rozgrywka mephisto">Kolec a Przejęcie – Jak działa Kolec po Przejęciu, bo w jego opisie są odniesienia do sztabu Mephisto? Działa normalnie, można użyć właściwego znacznika Kolca, a o parametrach ataku decyduje Sztab obecnego właściciela.</p>
+  <p class="rozgrywka mephisto nowy-jork gildia-kupcow posterunek">Inkubator – Czy po aktywowaniu go dodaje daną zdolność wszystkim jednostkom danej armii, czy tylko Sztabowi? Wszystkim jednostkom z wyjątkiem tych znaczników, przy których w opisie jest wprost napisane, że daje tylko sztabowi.</p>
+  <p class="rozgrywka mephisto">Inkubator + sieć – Co dzieje się ze znacznikiem znajdującym się na Inkubatorze, który został zasieciowany? Zostaje na nim, do końca najbliższej Bitwy albo usunięcia z planszy danego Inkubatora.</p>
+  <p class="rozgrywka mephist death-breath">Inkubator + sieć + Ożywianie – Co następuje najpierw zdjęcie znacznika sieci z Inkubatora czy Ożywianie? Zdjęcie znacznika sieci z Inkubatora.</p>
+  <p class="rozgrywka mephisto vegas">Inkubator + sieć + Vegas – Czy zdolność sieciowania działa na sztaby przeciwnika, skoro sztaby nie mogą się wzajemnie atakować, z drugiej strony sieć nie jest atakiem? Tak.</p>
+  <p class="rozgrywka mississipi smart stalowa-policja">Czy można zagrać żeton Podmiana po tym, jak ktoś zagrał Terror? Tak.</p>
+  <p class="rozgrywka smart stalowa-policja">Czy można wykorzystać zdolność jednostek ze znakiem zapytania np. Transporter (Smart) czy Pacyfikator (Stalowa Policja), jeśli został zagrany Terror? Tak.</p>
+  <p class="rozgrywka">Czy po przejęciu jednostki ze znakiem zapytania np. Transporter (Smart) czy Pacyfikator (Stalowa Policja) można skorzystać z ich cechy (?)? Tak.</p>
+  <p class="rozgrywka smart stalowa-policja neodzungla">Czy można korzystając ze zdolności jednostki ze znakiem zapytania np. Transporter (Smart) czy Pacyfikator (Stalowa Policja) położyć żeton Podłoża? Nie.</p>
+  <p class="rozgrywka uranopolis">Odpady – Czy dają dodatkowe obrażenie do każdego ataku albo innego źródła (jak jest w instrukcji w tym np. strzał o sile 1 i pancerz; Zatrucie; itp.), czy tylko takiego ataku, który zadaje danej jednostce jakiekolwiek obrażenia? Jeśli tak, to czy wówczas podpięty Bojler pod jednostkę z Zatruciem, doda kolejny znacznik jadu? Czy wtedy taki atak zostaje w całości wchłonięty przez medyka (np. Zatrucie)? Do takiego, który zadaje sam jakiekolwiek obrażenia.</p>
+  <p class="rozgrywka uranopolis dancer">Odpady – Czy Obiekt otrzyma dodatkowe obrażenie z Odpadów, jeśli otrzymuje obrażenie od żetonu Natychmiastowego? Tak.</p>
+  <p class="rozgrywka uranopolis stalowa-policja">Czy jeśli Odpady stoją obok sztabu Stalowej Policji i jest rzucana Stalowa sieć (bez Wyrzutni stalowej sieci) albo używamy zdolności Egzekutora (do zniszczenia jednostki przeciwnika), to sztab otrzymuje dwa obrażenia? Nie.</p>
+  <p class="rozgrywka uranopolis">Transformator Gaussa – Czy transformator Gausa może w jednej Bitwie zmienić atak dwóm podłączonym jednostkom, czy tylko jednej? Dwóm.</p>
+  <p class="rozgrywka uranopolis hegemonia">Transformator Gaussa / Kwatermistrz – Ograniczenie zamiany jednego kierunku i inicjatywy ataku na Bitwę jest dla danej jednostki czy kierunku działania modułu? Dla jednostki.</p>
+  <p class="rozgrywka mississipi">Mutacja/Wzmacniacz (sztab NY) – czy coś się dzieje, jeśli jednostka ze znacznikiem rany zostanie poruszona (Ruch, Odepchnięcie, Przyciągnięcie, Świder) z pola sąsiadującego z modułem dającym jej Wytrzymałość na sąsiednie pole z innym modułem dającym jej Wytrzymałość albo na inne pole z tym samym modułem, czy nic? Nic, bo tu i tu ma dodatkową wytrzymałość.</p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+  <p class="rozgrywka"></p>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
