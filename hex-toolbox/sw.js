@@ -86,28 +86,28 @@ define(['./workbox-5a5d9309'], (function (workbox) { 'use strict';
     "revision": "e63fae3ee40503dfaf6326e06219bad5"
   }, {
     "url": "index.html",
-    "revision": "0842afe3196844078a864b64b23a3e2e"
+    "revision": "c95b483543533093a5847307fc9b37b0"
   }, {
     "url": "icons.svg",
     "revision": "3b4fcfcf393eca4d264dca4a4663bc37"
   }, {
     "url": "icon-512.png",
-    "revision": "8eff3540c4230a65441aa8c84b621555"
+    "revision": "422353b512c565ef2ab85ae9dfa731ac"
   }, {
     "url": "icon-512-maskable.png",
     "revision": null
   }, {
     "url": "icon-32.png",
-    "revision": "1a34255991f6f7e745aeb04ccf6265a2"
+    "revision": "771ce0564ae98d7a5d542a87a882bacf"
   }, {
     "url": "icon-192.png",
-    "revision": "c2a1bc610f9bc2bf9b6c72bc014d7217"
+    "revision": "484c0f8eaeea0f541bdd320e011608ba"
   }, {
     "url": "apple-touch-icon.png",
-    "revision": "e02d1b3cee1ca7dc9fa00aed225ad86d"
+    "revision": "0bb5281f2ec0fee5c1c66cbbfae6a946"
   }, {
     "url": "app-icon-source.png",
-    "revision": "bc64c0a0f50e2fe10dd986e743c7d22f"
+    "revision": "e55cb61733b6abf8744427e79af6af17"
   }, {
     "url": "assets/vegas-zwiadowca-Ct5Z0NS2.png",
     "revision": null
@@ -997,10 +997,10 @@ define(['./workbox-5a5d9309'], (function (workbox) { 'use strict';
     "url": "assets/irongang-drwal-CXCZJaFL.png",
     "revision": null
   }, {
-    "url": "assets/index-CgSFHYZu.css",
+    "url": "assets/index-CMxP7yXh.js",
     "revision": null
   }, {
-    "url": "assets/index-Bxwesj9K.js",
+    "url": "assets/index-CDIYEM1B.css",
     "revision": null
   }, {
     "url": "assets/hegemonia-zwiadowca-BmZG655K.png",
