@@ -83,31 +83,31 @@ define(['./workbox-5a5d9309'], (function (workbox) { 'use strict';
    */
   workbox.precacheAndRoute([{
     "url": "manifest.webmanifest",
-    "revision": "b566c2ae48eaf0d4fe30dfa2a5a3b7c2"
+    "revision": "e63fae3ee40503dfaf6326e06219bad5"
   }, {
     "url": "index.html",
-    "revision": "ad9bdae50476b3c1fbb9c9e51461ba3f"
+    "revision": "0842afe3196844078a864b64b23a3e2e"
   }, {
     "url": "icons.svg",
     "revision": "3b4fcfcf393eca4d264dca4a4663bc37"
   }, {
     "url": "icon-512.png",
-    "revision": "eefddb7472582b2945c80a30bcc5392a"
+    "revision": "8eff3540c4230a65441aa8c84b621555"
   }, {
     "url": "icon-512-maskable.png",
     "revision": null
   }, {
-    "url": "icon-192.png",
-    "revision": "e3c35cb4c6cc41a5d4dbfc0c35b912e6"
+    "url": "icon-32.png",
+    "revision": "1a34255991f6f7e745aeb04ccf6265a2"
   }, {
-    "url": "favicon.svg",
-    "revision": "7e840862161341271697daa99a40d76b"
+    "url": "icon-192.png",
+    "revision": "c2a1bc610f9bc2bf9b6c72bc014d7217"
   }, {
     "url": "apple-touch-icon.png",
-    "revision": "b6354c65696306c93a7813ae52001493"
+    "revision": "e02d1b3cee1ca7dc9fa00aed225ad86d"
   }, {
-    "url": "app-icon.svg",
-    "revision": "7b834b5f0bb4e97ecb1dbabbfe284fb9"
+    "url": "app-icon-source.png",
+    "revision": "bc64c0a0f50e2fe10dd986e743c7d22f"
   }, {
     "url": "assets/vegas-zwiadowca-Ct5Z0NS2.png",
     "revision": null
@@ -997,10 +997,10 @@ define(['./workbox-5a5d9309'], (function (workbox) { 'use strict';
     "url": "assets/irongang-drwal-CXCZJaFL.png",
     "revision": null
   }, {
-    "url": "assets/index-DFfLbwjd.js",
+    "url": "assets/index-CgSFHYZu.css",
     "revision": null
   }, {
-    "url": "assets/index-CgSFHYZu.css",
+    "url": "assets/index-Bxwesj9K.js",
     "revision": null
   }, {
     "url": "assets/hegemonia-zwiadowca-BmZG655K.png",
