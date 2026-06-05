@@ -86,7 +86,7 @@ define(['./workbox-5a5d9309'], (function (workbox) { 'use strict';
     "revision": "e63fae3ee40503dfaf6326e06219bad5"
   }, {
     "url": "index.html",
-    "revision": "04d5f6c89447e1f1013da4d7ff3f1025"
+    "revision": "ea765619ed36cd7faee5aa897679381c"
   }, {
     "url": "icons.svg",
     "revision": "3b4fcfcf393eca4d264dca4a4663bc37"
@@ -1018,10 +1018,10 @@ define(['./workbox-5a5d9309'], (function (workbox) { 'use strict';
     "url": "assets/irongang-drwal-CXCZJaFL.png",
     "revision": null
   }, {
-    "url": "assets/index-DNGvjOCC.css",
+    "url": "assets/index-rMibN6bn.js",
     "revision": null
   }, {
-    "url": "assets/index-BVnPl8sZ.js",
+    "url": "assets/index-DNGvjOCC.css",
     "revision": null
   }, {
     "url": "assets/hegemonia-zwiadowca-BmZG655K.png",
