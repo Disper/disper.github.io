@@ -86,7 +86,7 @@ define(['./workbox-5a5d9309'], (function (workbox) { 'use strict';
     "revision": "e63fae3ee40503dfaf6326e06219bad5"
   }, {
     "url": "index.html",
-    "revision": "ea765619ed36cd7faee5aa897679381c"
+    "revision": "30a98288e791a2e9692c795e5e44c5fa"
   }, {
     "url": "icons.svg",
     "revision": "3b4fcfcf393eca4d264dca4a4663bc37"
@@ -1018,7 +1018,7 @@ define(['./workbox-5a5d9309'], (function (workbox) { 'use strict';
     "url": "assets/irongang-drwal-CXCZJaFL.png",
     "revision": null
   }, {
-    "url": "assets/index-rMibN6bn.js",
+    "url": "assets/index-DqIEstNn.js",
     "revision": null
   }, {
     "url": "assets/index-DNGvjOCC.css",
