@@ -86,7 +86,7 @@ define(['./workbox-5a5d9309'], (function (workbox) { 'use strict';
     "revision": "e63fae3ee40503dfaf6326e06219bad5"
   }, {
     "url": "index.html",
-    "revision": "e9a7b62b4eb35d1ff19238951368311d"
+    "revision": "f7a44679deced2df43ef7c1140e8abf5"
   }, {
     "url": "icons.svg",
     "revision": "3b4fcfcf393eca4d264dca4a4663bc37"
@@ -1021,7 +1021,7 @@ define(['./workbox-5a5d9309'], (function (workbox) { 'use strict';
     "url": "assets/index-DInYbWCf.css",
     "revision": null
   }, {
-    "url": "assets/index-ByYBvixr.js",
+    "url": "assets/index-Br1DMse3.js",
     "revision": null
   }, {
     "url": "assets/hegemonia-zwiadowca-BmZG655K.png",
